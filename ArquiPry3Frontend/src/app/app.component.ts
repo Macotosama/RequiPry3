@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { BarraNavegacionComponent } from './barra-navegacion/barra-navegacion.component'
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,13 @@ import { BarraNavegacionComponent } from './barra-navegacion/barra-navegacion.co
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ArquiPry3Frontend';
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  .pipe(
+    map(result => result.matches),
+    shareReplay()
+  );
+
+  title = 'Caribbean Adventure';
+
+  constructor(private breakpointObserver: BreakpointObserver){}
 }
