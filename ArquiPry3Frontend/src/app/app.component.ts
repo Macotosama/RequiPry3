@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BarraNavegacionComponent } from './barra-navegacion/barra-navegacion.component'
 
 @Component({
   selector: 'app-root',
