@@ -1,10 +1,37 @@
 <div class="mainContainer">
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>Ingresar</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            
-        </mat-card-content>
-    </mat-card>
+    <div class="cardContainer">
+        <mat-card>
+            <mat-card-header class="cardHeader">
+                <mat-card-title>Ingresar</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Correo electrónico</mat-label>
+                      <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+                      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                        Porfavor ingrese su <strong>correo electrónico</strong>
+                      </mat-error>
+                      <mat-error *ngIf="emailFormControl.hasError('required')">
+                        El correo electrónico es <strong>necesario</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </form>
+                  <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Correo electrónico</mat-label>
+                      <input type="text" matInput [formControl]="passControl" placeholder="Ex. *******">
+                      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                      <mat-error *ngIf="passControl.hasError('maxLength') && !passControl.hasError('required')">
+                        Porfavor ingrese su <strong>correo electrónico</strong>
+                      </mat-error>
+                      <mat-error *ngIf="passControl.hasError('required')">
+                        El correo electrónico es <strong>necesario</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>
