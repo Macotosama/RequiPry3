@@ -17,4 +17,29 @@
     grid-template-columns: repeat(1, 1fr);
     align-items: center;
     justify-items: center;
+    gap: 2em;
+}
+
+.Container {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    align-items: center;
+    justify-items: center;
+    gap: 2em;
+}
+
+.example-full-width {
+    width: 30em;
+}
+
+.cardAction {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    align-items: center;
+    justify-items: center;
+    gap: 2em;
+}
+
+.aceptar {
+    width: 10em;
 }
