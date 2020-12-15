@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
+import { RegistrarComponent } from '../registrar/registrar.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -16,7 +18,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class MainhomeComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
-  
+
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
@@ -28,9 +30,15 @@ export class MainhomeComponent implements OnInit {
     Validators.minLength(8)
   ])
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  dialogRegisterClientes() {
+    const dialogRef = this.dialog.open(RegistrarComponent, {
+      width: '300px', height: '550px',
+    })
   }
 
 }

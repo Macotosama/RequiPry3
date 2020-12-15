@@ -1,1 +1,89 @@
-<p>registrar works!</p>
+<div class="mainContainer">
+    <div>
+        <span class="titulo">Registrarse</span>
+    </div>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input type="text" matInput [formControl]="nameControl" placeholder="Ex. My Name"  [errorStateMatcher]="matcher">
+          <mat-error *ngIf="nameControl.hasError('maxlength') && !nameControl.hasError('required')">
+            Exedio el tamaño <strong>máximo</strong>
+          </mat-error>
+          <mat-error *ngIf="nameControl.hasError('minlength') && !nameControl.hasError('required')">
+            No cumple con el tamaño <strong>mínimo</strong>
+          </mat-error>
+          <mat-error *ngIf="nameControl.hasError('required')">
+            Ingrese su <strong>nombre</strong>
+          </mat-error>
+        </mat-form-field>
+    </form>
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Primer apellido</mat-label>
+          <input type="text" matInput [formControl]="apellid1Control" placeholder="Ex. My LastName"  [errorStateMatcher]="matcher">
+          <mat-error *ngIf="apellid1Control.hasError('maxlength') && !apellid1Control.hasError('required')">
+            Exedio el tamaño <strong>máximo</strong>
+          </mat-error>
+          <mat-error *ngIf="apellid1Control.hasError('minlength') && !apellid1Control.hasError('required')">
+            No cumple con el tamaño <strong>mínimo</strong>
+          </mat-error>
+          <mat-error *ngIf="apellid1Control.hasError('required')">
+            Ingrese su <strong>apellido</strong>
+          </mat-error>
+        </mat-form-field>
+    </form>
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Segundo apellido</mat-label>
+          <input type="text" matInput [formControl]="apellido2Control" placeholder="Ex. My LastName"  [errorStateMatcher]="matcher">
+          <mat-error *ngIf="apellido2Control.hasError('maxlength') && !apellido2Control.hasError('required')">
+            Exedio el tamaño <strong>máximo</strong>
+          </mat-error>
+          <mat-error *ngIf="apellido2Control.hasError('minlength') && !apellido2Control.hasError('required')">
+            No cumple con el tamaño <strong>mínimo</strong>
+          </mat-error>
+          <mat-error *ngIf="apellido2Control.hasError('required')">
+            Ingrese su <strong>apellido</strong>
+          </mat-error>
+        </mat-form-field>
+    </form>
+
+    <mat-form-field>
+        <mat-label>Fecha de nacimiento</mat-label>
+        <input matInput [matDatepicker]="dp1" disabled  [(ngModel)]="date">
+        <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+        <mat-datepicker #dp1 disabled="false"></mat-datepicker>
+    </mat-form-field>
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Correo electrónico</mat-label>
+          <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com" [errorStateMatcher]="matcher">
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Porfavor ingrese su <strong>correo electrónico</strong>
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            El correo electrónico es <strong>necesario</strong>
+          </mat-error>
+        </mat-form-field>
+    </form>
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Contraseña</mat-label>
+          <input type="text" matInput [formControl]="apellido2Control" placeholder="Ex. My LastName"  [errorStateMatcher]="matcher">
+          <mat-error *ngIf="apellido2Control.hasError('maxlength') && !apellido2Control.hasError('required')">
+            Exedio el tamaño <strong>máximo</strong>
+          </mat-error>
+          <mat-error *ngIf="apellido2Control.hasError('minlength') && !apellido2Control.hasError('required')">
+            No cumple con el tamaño <strong>mínimo</strong>
+          </mat-error>
+          <mat-error *ngIf="apellido2Control.hasError('required')">
+            Ingrese su <strong>apellido</strong>
+          </mat-error>
+        </mat-form-field>
+    </form>
+</div>
