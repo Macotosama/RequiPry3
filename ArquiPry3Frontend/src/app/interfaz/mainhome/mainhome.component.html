@@ -1,43 +1,69 @@
-<div class="mainContainer">
-    <div class="cardContainer">
-        <mat-card>
-            <mat-card-header class="cardHeader">
-                <mat-card-title>Ingresar</mat-card-title>
-            </mat-card-header>
-            <mat-card-content class="Container">
-                <form class="example-form">
-                    <mat-form-field class="example-full-width">
-                      <mat-label>Correo electrónico</mat-label>
-                      <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com" [errorStateMatcher]="matcher">
-                      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-                      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                        Porfavor ingrese su <strong>correo electrónico</strong>
-                      </mat-error>
-                      <mat-error *ngIf="emailFormControl.hasError('required')">
-                        El correo electrónico es <strong>necesario</strong>
-                      </mat-error>
-                    </mat-form-field>
-                  </form>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'side' : 'over'"
+      [opened]="(isHandset$ | async) === true">
+    <mat-toolbar>Menu</mat-toolbar>
+    <!-- <mat-nav-list *ngIf="session">
+      <a mat-list-item href="#">Hoteles</a>
+      <a mat-list-item href="#">Aventuras</a>
+      <a mat-list-item href="#">Habitaciones</a>
+      <a mat-list-item href="#">Reservaciones</a>
+      <a mat-list-item href="#">Clientes</a>
+    </mat-nav-list> -->
+    <mat-nav-list>
+      <a mat-list-item href="#">Iniciar sesion</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="maintoolbar">
+      <menu (click)="drawer.toggle()"><mat-icon class="iconMenu">menu</mat-icon></menu>
+      <span class="titulo">Caribbean Adventure</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="mainContainer">
+      <div class="cardContainer">
+          <mat-card>
+              <mat-card-header class="cardHeader">
+                  <mat-card-title>Ingresar</mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="Container">
                   <form class="example-form">
-                    <mat-form-field class="example-full-width">
-                      <mat-label>Contraseña</mat-label>
-                      <input type="text" matInput [formControl]="passControl" placeholder="Ex. *******">
-                      <mat-error *ngIf="passControl.hasError('maxlength') && !passControl.hasError('required')">
-                        Exedio el tamaño <strong>máximo</strong>
-                      </mat-error>
-                      <mat-error *ngIf="passControl.hasError('minlength') && !passControl.hasError('required')">
-                        No cumple con el tamaño <strong>mínimo</strong>
-                      </mat-error>
-                      <mat-error *ngIf="passControl.hasError('required')">
-                        Ingrese su <strong>contraseña</strong>
-                      </mat-error>
-                    </mat-form-field>
-                  </form>
-            </mat-card-content>
-            <mat-card-actions class="cardAction">
-              <button mat-flat-button color="primary" class="aceptar">Aceptar</button>
-              <a (click)="dialogRegisterClientes()">Registrar</a>
-            </mat-card-actions>
-        </mat-card>
-    </div>
-</div>
+                      <mat-form-field class="example-full-width">
+                        <mat-label>Correo electrónico</mat-label>
+                        <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com" [errorStateMatcher]="matcher">
+                        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                          Porfavor ingrese su <strong>correo electrónico</strong>
+                        </mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                          El correo electrónico es <strong>necesario</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </form>
+                    <form class="example-form">
+                      <mat-form-field class="example-full-width">
+                        <mat-label>Contraseña</mat-label>
+                        <input type="text" matInput [formControl]="passControl" placeholder="Ex. *******">
+                        <mat-error *ngIf="passControl.hasError('maxlength') && !passControl.hasError('required')">
+                          Exedio el tamaño <strong>máximo</strong>
+                        </mat-error>
+                        <mat-error *ngIf="passControl.hasError('minlength') && !passControl.hasError('required')">
+                          No cumple con el tamaño <strong>mínimo</strong>
+                        </mat-error>
+                        <mat-error *ngIf="passControl.hasError('required')">
+                          Ingrese su <strong>contraseña</strong>
+                        </mat-error>
+                      </mat-form-field>
+                    </form>
+              </mat-card-content>
+              <mat-card-actions class="cardAction">
+                <button mat-flat-button color="primary" class="aceptar" (click)="enviarSeccion(true)">Aceptar</button>
+                <a (click)="dialogRegisterClientes()">Registrar</a>
+              </mat-card-actions>
+          </mat-card>
+      </div>
+  </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

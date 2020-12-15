@@ -1,3 +1,39 @@
+.sidenav-container {
+    height: 100%;
+  }
+  
+  .sidenav {
+    width: 200px;
+  }
+  
+  .sidenav .mat-toolbar {
+    background: inherit;
+  }
+  
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .maintoolbar {
+    color: white;
+    background-color: rgba(30, 55, 199, 0.801);
+    height: 10%;
+  }
+  
+  .iconMenu {
+    cursor: pointer;
+    color: white;
+    font-size: 3em;
+  }
+  
+  .titulo {
+    position: absolute;
+    left: 15%;
+    font-size: 3em;
+  }
+  
 .mainContainer {
     position: absolute;
     top: 20%;

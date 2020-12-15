@@ -18,12 +18,14 @@ import { RegistrarComponent } from './interfaz/registrar/registrar.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MenuComponent } from './interfaz/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainhomeComponent,
-    RegistrarComponent
+    RegistrarComponent,
+    MenuComponent
     ],
   imports: [
     BrowserModule,

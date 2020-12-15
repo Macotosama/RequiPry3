@@ -1,23 +1,2 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'side' : 'over'"
-      [opened]="(isHandset$ | async) === true">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Hoteles</a>
-      <a mat-list-item href="#">Aventuras</a>
-      <a mat-list-item href="#">Habitaciones</a>
-      <a mat-list-item href="#">Reservaciones</a>
-      <a mat-list-item href="#">Clientes</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar class="maintoolbar">
-      <menu (click)="drawer.toggle()"><mat-icon class="iconMenu">menu</mat-icon></menu>
-      <span class="titulo">Caribbean Adventure</span>
-    </mat-toolbar>
-    <!-- Add Content Here -->
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+
+<router-outlet></router-outlet>
