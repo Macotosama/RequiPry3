@@ -22,6 +22,7 @@ import { MenuComponent } from './interfaz/menu/menu.component';
 import { HotelesComponent } from './interfaz/hoteles/hoteles.component';
 import { MatTableModule } from '@angular/material/table';
 import { VerinfohotelComponent } from './interfaz/hoteles/verinfohotel/verinfohotel.component';
+import { EditarInfoHotelComponent } from './interfaz/hoteles/editar-info-hotel/editar-info-hotel.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { VerinfohotelComponent } from './interfaz/hoteles/verinfohotel/verinfoho
     RegistrarComponent,
     MenuComponent,
     HotelesComponent,
-    VerinfohotelComponent
+    VerinfohotelComponent,
+    EditarInfoHotelComponent,
     ],
   imports: [
     BrowserModule,

@@ -1,0 +1,60 @@
+<div>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Cédula Júridica</mat-label>
+          <input type="number" matInput [formControl]="cedula" placeholder="Ex. 9999999999" [errorStateMatcher]="matcher">
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="cedula.hasError('maxlength') || cedula.hasError('minlength') || cedula.hasError('pattern')">
+            Ingrese una <strong>Cédula Júridica</strong> válida
+          </mat-error>
+          <mat-error *ngIf="cedula.hasError('required')">
+            Ingrese la <strong>Cédula Júridica</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input type="text" matInput [formControl]="nombre" placeholder="Ex. Name" [errorStateMatcher]="matcher">
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="nombre.hasError('pattern')">
+            Ingrese un <strong>Nombre</strong> válido
+          </mat-error>
+          <mat-error *ngIf="nombre.hasError('maxlength')">
+            Exedio el tamaño <strong>máximo</strong> par el nombre
+          </mat-error>
+          <mat-error *ngIf="nombre.hasError('required')">
+            Ingrese el <strong>Nombre</strong> del hotel
+          </mat-error>
+        </mat-form-field>
+      </form>
+
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Teléfono</mat-label>
+          <input type="number" matInput [formControl]="telefono" placeholder="Ex. 88888888" [errorStateMatcher]="matcher">
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="telefono.hasError('maxlength') || telefono.hasError('minlength') || telefono.hasError('pattern')">
+            Ingrese un n° de <strong>Teléfono</strong> válido
+          </mat-error>
+          <mat-error *ngIf="telefono.hasError('required')">
+            Ingrese el n° de <strong>Teléfono</strong> del hotel
+          </mat-error>
+        </mat-form-field>
+      </form>
+
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Sitio Wep</mat-label>
+          <input type="text" matInput [formControl]="sitioWep" placeholder="Ex. www.xnxxx.com" [errorStateMatcher]="matcher">
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="sitioWep.hasError('maxlength') || sitioWep.hasError('minlength')">
+            Ingrese una <strong>URL</strong> válida
+          </mat-error>
+          <mat-error *ngIf="sitioWep.hasError('required')">
+            Ingrese la <strong>URL</strong> del hotel
+          </mat-error>
+        </mat-form-field>
+      </form>
+</div>
