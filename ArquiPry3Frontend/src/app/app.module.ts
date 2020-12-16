@@ -23,6 +23,8 @@ import { HotelesComponent } from './interfaz/hoteles/hoteles.component';
 import { MatTableModule } from '@angular/material/table';
 import { VerinfohotelComponent } from './interfaz/hoteles/verinfohotel/verinfohotel.component';
 import { EditarInfoHotelComponent } from './interfaz/hoteles/editar-info-hotel/editar-info-hotel.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { CrearHotelComponent } from './interfaz/hoteles/crear-hotel/crear-hotel.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { EditarInfoHotelComponent } from './interfaz/hoteles/editar-info-hotel/e
     HotelesComponent,
     VerinfohotelComponent,
     EditarInfoHotelComponent,
+    CrearHotelComponent,
     ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { EditarInfoHotelComponent } from './interfaz/hoteles/editar-info-hotel/e
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

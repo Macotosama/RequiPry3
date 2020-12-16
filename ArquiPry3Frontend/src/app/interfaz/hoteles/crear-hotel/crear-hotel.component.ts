@@ -1,7 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -11,11 +11,11 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: 'app-editar-info-hotel',
-  templateUrl: './editar-info-hotel.component.html',
-  styleUrls: ['./editar-info-hotel.component.scss']
+  selector: 'app-crear-hotel',
+  templateUrl: './crear-hotel.component.html',
+  styleUrls: ['./crear-hotel.component.scss']
 })
-export class EditarInfoHotelComponent implements OnInit {
+export class CrearHotelComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   cedula = new FormControl('', [
@@ -60,13 +60,7 @@ export class EditarInfoHotelComponent implements OnInit {
   pet: boolean = false;
   ley7600: boolean = true;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<EditarInfoHotelComponent>) {
-    this.cedula.setValue(data);
-    this.nombre.setValue(data);
-    this.telefono.setValue(data);
-    this.sitioWep.setValue(data);
-    this.correoElectronico.setValue(data);
-    this.facebook.setValue(data);
+  constructor(public dialogRef: MatDialogRef<CrearHotelComponent>) {
    }
 
   ngOnInit(): void {

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { VerinfohotelComponent } from './verinfohotel/verinfohotel.component';
+import { EditarInfoHotelComponent } from './editar-info-hotel/editar-info-hotel.component';
+import { CrearHotelComponent } from './crear-hotel/crear-hotel.component';
 
 @Component({
   selector: 'app-hoteles',
@@ -28,6 +30,18 @@ export class HotelesComponent implements OnInit {
   dialogVerInfo(item: number) {
     const dialogRef = this.dialog.open(VerinfohotelComponent, {
       width: '400px', height: '400px', data: item
+    })
+  }
+
+  dialogEditarInfo(item: number) {
+    const dialogRef = this.dialog.open(EditarInfoHotelComponent, {
+      width: '400px', height: '600px', data: item
+    })
+  }
+
+  dialogAgregarHotel() {
+    const dialogRef = this.dialog.open(CrearHotelComponent, {
+      width: '400px', height: '600px'
     })
   }
 
