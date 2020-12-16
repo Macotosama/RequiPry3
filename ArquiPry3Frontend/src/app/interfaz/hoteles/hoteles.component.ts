@@ -9,8 +9,8 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./hoteles.component.scss']
 })
 export class HotelesComponent implements OnInit {
-  dataSource: any[];
-  displayedColumns = ['cedula' ,'nombre', 'telefono']
+  dataSource = ['1','2','3','4','5','6','7','8','9','10'];
+  displayedColumns = ['cedula' ,'nombre', 'telefono', 'accion'];
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
   .pipe(

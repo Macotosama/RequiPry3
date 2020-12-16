@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MenuComponent } from './interfaz/menu/menu.component';
 import { HotelesComponent } from './interfaz/hoteles/hoteles.component';
 import { MatTableModule } from '@angular/material/table';
+import { VerinfohotelComponent } from './interfaz/hoteles/verinfohotel/verinfohotel.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatTableModule } from '@angular/material/table';
     MainhomeComponent,
     RegistrarComponent,
     MenuComponent,
-    HotelesComponent
+    HotelesComponent,
+    VerinfohotelComponent
     ],
   imports: [
     BrowserModule,
