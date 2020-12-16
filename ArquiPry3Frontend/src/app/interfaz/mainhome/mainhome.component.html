@@ -59,7 +59,7 @@
                     </form>
               </mat-card-content>
               <mat-card-actions class="cardAction">
-                <button mat-flat-button color="primary" class="aceptar" (click)="enviarSeccion(true)">Aceptar</button>
+                <button mat-flat-button color="primary" class="aceptar" [routerLink]="['/menu']">Aceptar</button>
                 <a (click)="dialogRegisterClientes()">Registrar</a>
               </mat-card-actions>
           </mat-card>

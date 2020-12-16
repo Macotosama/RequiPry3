@@ -19,13 +19,16 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MenuComponent } from './interfaz/menu/menu.component';
+import { HotelesComponent } from './interfaz/hoteles/hoteles.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainhomeComponent,
     RegistrarComponent,
-    MenuComponent
+    MenuComponent,
+    HotelesComponent
     ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { MenuComponent } from './interfaz/menu/menu.component';
     MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

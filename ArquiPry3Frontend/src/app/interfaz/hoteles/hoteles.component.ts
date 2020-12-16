@@ -4,11 +4,13 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  selector: 'app-hoteles',
+  templateUrl: './hoteles.component.html',
+  styleUrls: ['./hoteles.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class HotelesComponent implements OnInit {
+  dataSource: any[];
+  displayedColumns = ['cedula' ,'nombre', 'telefono']
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
   .pipe(

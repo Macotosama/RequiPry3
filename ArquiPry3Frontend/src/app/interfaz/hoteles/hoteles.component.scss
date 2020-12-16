@@ -33,7 +33,7 @@
     left: 15%;
     font-size: 3em;
   }
-  
+
   //------------------------------------------------------------------
   
 .mainContainer {
@@ -46,39 +46,14 @@
     align-items: center;
     justify-items: center;
 }
-.cardContainer {
-    width: 30%;
-}
 
-.cardHeader {
+.tableContainer {
+    width: 100em;
+    height: 50em;
+    background-color: #BC88F8;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    align-items: center;
-    justify-items: center;
-    gap: 2em;
-    padding: 3em;
-}
-
-.Container {
-    display: grid;
-    grid-template-columns: repeat(1, 100%);
-    align-items: center;
-    justify-items: center;
-    gap: 2em;
-}
-
-.example-full-width {
-    width: 30em;
-}
-
-.cardAction {
-    display: grid;
-    grid-template-columns: repeat(1, 100%);
-    align-items: center;
-    justify-items: center;
-    gap: 2em;
-}
-
-.aceptar {
-    width: 10em;
+    border-radius: 30px;
+    margin: 16px;
+    padding: 16px;
 }

@@ -28,8 +28,6 @@ export class MainhomeComponent implements OnInit {
   );
 
   
-  @Output()
-  ingreso = new EventEmitter<boolean>();
 
   matcher = new MyErrorStateMatcher();
 
@@ -47,13 +45,8 @@ export class MainhomeComponent implements OnInit {
   constructor(public dialog: MatDialog, private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit(): void {
-    this.enviarSeccion(false);
   }
-
-  enviarSeccion(f:boolean) {
-    this.ingreso.emit(f);
-  }
-
+  
   dialogRegisterClientes() {
     const dialogRef = this.dialog.open(RegistrarComponent, {
       width: '300px', height: '550px',
