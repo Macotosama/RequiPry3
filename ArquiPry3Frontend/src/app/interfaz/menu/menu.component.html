@@ -6,9 +6,9 @@
         [opened]="(isHandset$ | async) === true">
       <mat-toolbar>Menu</mat-toolbar>
       <mat-nav-list>
-        <a mat-list-item href="/hoteles">Hoteles</a>
-        <a mat-list-item href="#">Aventuras</a>
-        <a mat-list-item href="#">Habitaciones</a>
+        <a mat-list-item [routerLink]="['/hoteles']">Hoteles</a>
+        <a mat-list-item [routerLink]="['/aventuras']">Aventuras</a>
+        <a mat-list-item [routerLink]="['/aventuras']">Habitaciones</a>
         <a mat-list-item href="#">Reservaciones</a>
         <a mat-list-item href="#">Clientes</a>
         <a mat-list-item href="#">Cerrar sesión</a>
@@ -22,7 +22,7 @@
       <!-- Add Content Here -->
         <div class="mainContainer">
             <button mat-flat-button [routerLink]="['/hoteles']">Hoteles</button>
-            <button mat-flat-button [routerLink]="['/#']">Aventuras</button>
+            <button mat-flat-button [routerLink]="['/aventuras']">Aventuras</button>
             <button mat-flat-button [routerLink]="['/#']">Habitaciones</button>
             <button mat-flat-button [routerLink]="['/#']">Reservaciones</button>
             <button mat-flat-button [routerLink]="['/#']">Clientes</button>

@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainhomeComponent } from './interfaz/mainhome/mainhome.component';
 import { MenuComponent } from './interfaz/menu/menu.component';
 import { HotelesComponent } from './interfaz/hoteles/hoteles.component';
+import { AventurasComponent } from './aventuras/aventuras.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: MainhomeComponent },
   {path: 'menu', component: MenuComponent },
   {path: 'hoteles', component: HotelesComponent },
+  {path: 'aventuras', component: AventurasComponent },
 ];
 
 @NgModule({
