@@ -29,6 +29,7 @@ import { AventurasComponent } from './interfaz/aventuras/aventuras.component';
 import { VerinfoaventuraComponent } from './interfaz/aventuras/verinfoaventura/verinfoaventura.component';
 import { EditarInfoAventuraComponent } from './interfaz/aventuras/editar-info-aventura/editar-info-aventura.component';
 import { CrearAventuraComponent } from './interfaz/aventuras/crear-aventura/crear-aventura.component';
+import { HabitacionesComponent } from './interfaz/habitaciones/habitaciones.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CrearAventuraComponent } from './interfaz/aventuras/crear-aventura/crea
     VerinfoaventuraComponent,
     EditarInfoAventuraComponent,
     CrearAventuraComponent,
+    HabitacionesComponent,
     ],
   imports: [
     BrowserModule,
