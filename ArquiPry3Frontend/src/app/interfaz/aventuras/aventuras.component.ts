@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { VerinfoaventuraComponent } from './verinfoaventura/verinfoaventura.component';
+import { EditarInfoAventuraComponent } from './editar-info-aventura/editar-info-aventura.component';
+import { CrearAventuraComponent } from './crear-aventura/crear-aventura.component';
 
 @Component({
   selector: 'app-aventuras',
@@ -32,15 +34,15 @@ export class AventurasComponent implements OnInit {
   }
 
   dialogEditarInfo(item: number) {
-    // const dialogRef = this.dialog.open(EditarInfoHotelComponent, {
-    //   width: '400px', height: '600px', data: item
-    // })
+    const dialogRef = this.dialog.open(EditarInfoAventuraComponent, {
+      width: '400px', height: '600px', data: item
+    })
   }
 
   dialogAgregar() {
-    // const dialogRef = this.dialog.open(CrearHotelComponent, {
-    //   width: '400px', height: '600px'
-    // })
+    const dialogRef = this.dialog.open(CrearAventuraComponent, {
+      width: '400px', height: '600px'
+    })
   }
 
 }

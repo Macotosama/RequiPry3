@@ -27,6 +27,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { CrearHotelComponent } from './interfaz/hoteles/crear-hotel/crear-hotel.component';
 import { AventurasComponent } from './interfaz/aventuras/aventuras.component';
 import { VerinfoaventuraComponent } from './interfaz/aventuras/verinfoaventura/verinfoaventura.component';
+import { EditarInfoAventuraComponent } from './interfaz/aventuras/editar-info-aventura/editar-info-aventura.component';
+import { CrearAventuraComponent } from './interfaz/aventuras/crear-aventura/crear-aventura.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { VerinfoaventuraComponent } from './interfaz/aventuras/verinfoaventura/v
     CrearHotelComponent,
     AventurasComponent,
     VerinfoaventuraComponent,
+    EditarInfoAventuraComponent,
+    CrearAventuraComponent,
     ],
   imports: [
     BrowserModule,
