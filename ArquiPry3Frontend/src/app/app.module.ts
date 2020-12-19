@@ -25,7 +25,7 @@ import { VerinfohotelComponent } from './interfaz/hoteles/verinfohotel/verinfoho
 import { EditarInfoHotelComponent } from './interfaz/hoteles/editar-info-hotel/editar-info-hotel.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { CrearHotelComponent } from './interfaz/hoteles/crear-hotel/crear-hotel.component';
-import { AventurasComponent } from './aventuras/aventuras.component';
+import { AventurasComponent } from './interfaz/aventuras/aventuras.component';
 
 @NgModule({
   declarations: [

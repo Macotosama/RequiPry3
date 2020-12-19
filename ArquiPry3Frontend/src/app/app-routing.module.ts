@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainhomeComponent } from './interfaz/mainhome/mainhome.component';
 import { MenuComponent } from './interfaz/menu/menu.component';
 import { HotelesComponent } from './interfaz/hoteles/hoteles.component';
-import { AventurasComponent } from './aventuras/aventuras.component';
+import { AventurasComponent } from './interfaz/aventuras/aventuras.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
