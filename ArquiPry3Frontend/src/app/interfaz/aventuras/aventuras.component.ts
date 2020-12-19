@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
+import { VerinfoaventuraComponent } from './verinfoaventura/verinfoaventura.component';
 
 @Component({
   selector: 'app-aventuras',
@@ -25,9 +26,9 @@ export class AventurasComponent implements OnInit {
   }
 
   dialogVerInfo(item: number) {
-    // const dialogRef = this.dialog.open(VerinfohotelComponent, {
-    //   width: '400px', height: '400px', data: item
-    // })
+    const dialogRef = this.dialog.open(VerinfoaventuraComponent, {
+      width: '400px', height: '250px', data: item
+    })
   }
 
   dialogEditarInfo(item: number) {
@@ -36,7 +37,7 @@ export class AventurasComponent implements OnInit {
     // })
   }
 
-  dialogAgregarHotel() {
+  dialogAgregar() {
     // const dialogRef = this.dialog.open(CrearHotelComponent, {
     //   width: '400px', height: '600px'
     // })
