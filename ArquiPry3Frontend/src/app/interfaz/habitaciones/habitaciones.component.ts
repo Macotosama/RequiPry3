@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
+import { VerinfohabitacionComponent } from './verinfohabitacion/verinfohabitacion.component';
 
 @Component({
   selector: 'app-habitaciones',
@@ -26,9 +27,9 @@ export class HabitacionesComponent implements OnInit {
   }
 
   dialogVerInfo(item: number) {
-    // const dialogRef = this.dialog.open(VerinfohotelComponent, {
-    //   width: '400px', height: '400px', data: item
-    // })
+    const dialogRef = this.dialog.open(VerinfohabitacionComponent , {
+      width: '400px', height: '400px', data: item
+    })
   }
 
   dialogEditarInfo(item: number) {
