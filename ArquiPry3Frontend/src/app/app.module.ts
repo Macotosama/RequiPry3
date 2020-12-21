@@ -33,6 +33,7 @@ import { HabitacionesComponent } from './interfaz/habitaciones/habitaciones.comp
 import { MatSelectModule } from '@angular/material/select';
 import { VerinfohabitacionComponent } from './interfaz/habitaciones/verinfohabitacion/verinfohabitacion.component';
 import { EditarInfoHabitacionComponent } from './interfaz/habitaciones/editar-info-habitacion/editar-info-habitacion.component';
+import { CrearHabitacionComponent } from './interfaz/habitaciones/crear-habitacion/crear-habitacion.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { EditarInfoHabitacionComponent } from './interfaz/habitaciones/editar-in
     HabitacionesComponent,
     VerinfohabitacionComponent,
     EditarInfoHabitacionComponent,
+    CrearHabitacionComponent,
     ],
   imports: [
     BrowserModule,

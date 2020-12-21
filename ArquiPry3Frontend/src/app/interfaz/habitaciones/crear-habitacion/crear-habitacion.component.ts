@@ -11,11 +11,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: 'app-editar-info-habitacion',
-  templateUrl: './editar-info-habitacion.component.html',
-  styleUrls: ['./editar-info-habitacion.component.scss']
+  selector: 'app-crear-habitacion',
+  templateUrl: './crear-habitacion.component.html',
+  styleUrls: ['./crear-habitacion.component.scss']
 })
-export class EditarInfoHabitacionComponent implements OnInit {
+export class CrearHabitacionComponent implements OnInit {
+
   matcher = new MyErrorStateMatcher();
   foods: string[];
 
@@ -41,7 +42,7 @@ export class EditarInfoHabitacionComponent implements OnInit {
     Validators.minLength(2)
   ]);
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<EditarInfoHabitacionComponent>) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<CrearHabitacionComponent>) {
     this.numeroHabitacion.setValue(data);
     this.precio.setValue(data);
     this.descripcion.setValue(data);
