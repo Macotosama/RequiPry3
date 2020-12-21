@@ -31,6 +31,7 @@ import { EditarInfoAventuraComponent } from './interfaz/aventuras/editar-info-av
 import { CrearAventuraComponent } from './interfaz/aventuras/crear-aventura/crear-aventura.component';
 import { HabitacionesComponent } from './interfaz/habitaciones/habitaciones.component';
 import { MatSelectModule } from '@angular/material/select';
+import { VerinfohabitacionComponent } from './interfaz/habitaciones/verinfohabitacion/verinfohabitacion.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { MatSelectModule } from '@angular/material/select';
     EditarInfoAventuraComponent,
     CrearAventuraComponent,
     HabitacionesComponent,
+    VerinfohabitacionComponent,
     ],
   imports: [
     BrowserModule,
