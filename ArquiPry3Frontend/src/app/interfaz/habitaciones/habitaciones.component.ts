@@ -19,6 +19,7 @@ export class HabitacionesComponent implements OnInit {
     shareReplay()
   );
 
+  hoteles: string[];
   constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog) { }
 
   ngOnInit(): void {

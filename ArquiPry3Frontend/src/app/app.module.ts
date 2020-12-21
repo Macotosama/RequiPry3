@@ -30,6 +30,7 @@ import { VerinfoaventuraComponent } from './interfaz/aventuras/verinfoaventura/v
 import { EditarInfoAventuraComponent } from './interfaz/aventuras/editar-info-aventura/editar-info-aventura.component';
 import { CrearAventuraComponent } from './interfaz/aventuras/crear-aventura/crear-aventura.component';
 import { HabitacionesComponent } from './interfaz/habitaciones/habitaciones.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { HabitacionesComponent } from './interfaz/habitaciones/habitaciones.comp
     MatNativeDateModule,
     MatDialogModule,
     MatTableModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
