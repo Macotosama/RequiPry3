@@ -5,6 +5,7 @@ import { MenuComponent } from './interfaz/menu/menu.component';
 import { HotelesComponent } from './interfaz/hoteles/hoteles.component';
 import { AventurasComponent } from './interfaz/aventuras/aventuras.component';
 import { HabitacionesComponent } from './interfaz/habitaciones/habitaciones.component';
+import { ReservacionComponent } from './interfaz/reservacion/reservacion.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'hoteles', component: HotelesComponent },
   {path: 'aventuras', component: AventurasComponent },
   {path: 'habitaciones', component: HabitacionesComponent },
+  {path: 'reservaciones', component: ReservacionComponent },
 ];
 
 @NgModule({
