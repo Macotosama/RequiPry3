@@ -36,6 +36,7 @@ import { EditarInfoHabitacionComponent } from './interfaz/habitaciones/editar-in
 import { CrearHabitacionComponent } from './interfaz/habitaciones/crear-habitacion/crear-habitacion.component';
 import { ReservacionComponent } from './interfaz/reservacion/reservacion.component';
 import { VerinforeservacionComponent } from './interfaz/reservacion/verinforeservacion/verinforeservacion.component';
+import { ClientesComponent } from './interfaz/clientes/clientes.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { VerinforeservacionComponent } from './interfaz/reservacion/verinforeser
     CrearHabitacionComponent,
     ReservacionComponent,
     VerinforeservacionComponent,
+    ClientesComponent,
     ],
   imports: [
     BrowserModule,

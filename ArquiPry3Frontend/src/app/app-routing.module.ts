@@ -6,6 +6,7 @@ import { HotelesComponent } from './interfaz/hoteles/hoteles.component';
 import { AventurasComponent } from './interfaz/aventuras/aventuras.component';
 import { HabitacionesComponent } from './interfaz/habitaciones/habitaciones.component';
 import { ReservacionComponent } from './interfaz/reservacion/reservacion.component';
+import { ClientesComponent } from './interfaz/clientes/clientes.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'aventuras', component: AventurasComponent },
   {path: 'habitaciones', component: HabitacionesComponent },
   {path: 'reservaciones', component: ReservacionComponent },
+  {path: 'clientes', component: ClientesComponent },
 ];
 
 @NgModule({
