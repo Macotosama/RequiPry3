@@ -3,7 +3,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import {ErrorStateMatcher} from '@angular/material/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { HotelesService } from '../../../logicaDeNegocios/hoteles/servicios/hotelesService';
-import { Hoteles } from '../../../logicaDeNegocios/hoteles/hotelesModel/hoteles';
+import { Hoteles, RedesSociales } from '../../../logicaDeNegocios/hoteles/hotelesModel/hoteles';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -134,13 +134,13 @@ export class CrearHotelComponent implements OnInit {
   urlRedSocia = new FormControl('', [
     Validators.required,
     Validators.maxLength(100),
-    Validators.minLength(100),
+    Validators.minLength(5),
   ]);
 
   nombreRedSocial = new FormControl('', [
     Validators.required,
-    Validators.maxLength(100),
-    Validators.minLength(100),
+    Validators.maxLength(30),
+    Validators.minLength(5),
   ]);
 
   idiomas = new FormControl('', [
@@ -151,6 +151,9 @@ export class CrearHotelComponent implements OnInit {
 
   pet: string = 'true';
   ley7600: string = 'true';
+
+  redesSociles: RedesSociales[];
+  redesSocialesColumnas = ['nombre', 'url', 'accion'];
 
   constructor(public dialogRef: MatDialogRef<CrearHotelComponent>, private servicio: HotelesService) {
    }

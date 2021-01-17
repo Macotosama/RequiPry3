@@ -293,6 +293,68 @@
     </mat-form-field>
   </form>
 </div>
-<div class="redesSociales">
 
+<div class="redesSociales">
+    <div class="tableContainer">
+      <div class="titulo">
+        <span class="titulo2">Redes Sociales</span>
+      </div>
+      <div class="redSocial">
+        <form class="example-form">
+          <mat-form-field class="example-full-width2">
+            <mat-label>Nombre</mat-label>
+            <input type="email" matInput [formControl]="nombreRedSocial" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+            <mat-error *ngIf="nombreRedSocial.hasError('minlength') || nombreRedSocial.hasError('maxlength')">
+              No cumple con el tamaño <strong>Permitido</strong>
+            </mat-error>
+            <mat-error *ngIf="nombreRedSocial.hasError('required')">
+              Ingrese el <strong>Nombre</strong> del nombreRedSocial
+            </mat-error>
+          </mat-form-field>
+        </form>
+
+        <form class="example-form">
+          <mat-form-field class="example-full-width2">
+            <mat-label>URL</mat-label>
+            <input type="email" matInput [formControl]="urlRedSocia" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+            <mat-error *ngIf="urlRedSocia.hasError('minlength') || urlRedSocia.hasError('maxlength')">
+              No cumple con el tamaño <strong>Permitido</strong>
+            </mat-error>
+            <mat-error *ngIf="urlRedSocia.hasError('required')">
+              Ingrese la <strong>URL</strong>
+            </mat-error>
+          </mat-form-field>
+        </form>
+
+        <button mat-flat-button color="primary" class="tablaBotones">Agregar</button>
+      </div>
+      <table mat-table [dataSource]="redesSociles" class="mat-elevation-z8 tabla">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.tipo}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="url">
+            <th mat-header-cell *matHeaderCellDef> URL </th>
+            <td mat-cell *matCellDef="let element"> {{element.url}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="accion">
+            <th mat-header-cell *matHeaderCellDef> Acción </th>
+            <td mat-cell *matCellDef="let element"> <button mat-flat-button color="primary" class="tablaBotones"><mat-icon>delete</mat-icon></button>|
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="redesSocialesColumnas"></tr>
+          <tr mat-row *matRowDef="let row; columns: redesSocialesColumnas;"></tr>
+        </table>
+  </div>
 </div>

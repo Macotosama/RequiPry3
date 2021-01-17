@@ -16,3 +16,8 @@ export interface Hoteles {
     petFriendly: boolean,
     ley7600: boolean
 }
+
+export interface RedesSociales {
+    tipo: string,
+    url: string,
+}
