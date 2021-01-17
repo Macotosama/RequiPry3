@@ -38,6 +38,7 @@ import { CrearHabitacionComponent } from './interfaz/habitaciones/crear-habitaci
 import { ReservacionComponent } from './interfaz/reservacion/reservacion.component';
 import { VerinforeservacionComponent } from './interfaz/reservacion/verinforeservacion/verinforeservacion.component';
 import { ClientesComponent } from './interfaz/clientes/clientes.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { ClientesComponent } from './interfaz/clientes/clientes.component';
     MatTableModule,
     MatRadioModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

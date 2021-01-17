@@ -110,8 +110,7 @@
       </div>
 
       <!-- <button mat-flat-button color="primary">Aceptar</button> -->
-</div>
-<div class="direcciones">
+
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>GPS</mat-label>
@@ -183,6 +182,20 @@
         No cumple con el tamaño <strong>Permitido</strong>
       </mat-error>
       <mat-error *ngIf="sennas.hasError('required')">
+        Ingrese el <strong>Distrito</strong> del hotel
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Imagen</mat-label>
+      <input type="text" matInput [formControl]="imagen" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="imagen.hasError('minlength') || imagen.hasError('maxlength')">
+        No cumple con el tamaño <strong>Permitido</strong>
+      </mat-error>
+      <mat-error *ngIf="imagen.hasError('required')">
         Ingrese el <strong>Distrito</strong> del hotel
       </mat-error>
     </mat-form-field>
@@ -328,7 +341,7 @@
           </mat-form-field>
         </form>
 
-        <button mat-flat-button color="primary" class="tablaBotones">Agregar</button>
+        <button mat-flat-button color="primary" class="tablaBotones" (click)="agregarRedSocial()">Agregar</button>
       </div>
       <table mat-table [dataSource]="redesSociles" class="mat-elevation-z8 tabla">
 
@@ -350,7 +363,7 @@
           <!-- Symbol Column -->
           <ng-container matColumnDef="accion">
             <th mat-header-cell *matHeaderCellDef> Acción </th>
-            <td mat-cell *matCellDef="let element"> <button mat-flat-button color="primary" class="tablaBotones"><mat-icon>delete</mat-icon></button>|
+            <td mat-cell *matCellDef="let element"> <button mat-flat-button color="primary" class="tablaBotones"><mat-icon>delete</mat-icon></button>
           </ng-container>
         
           <tr mat-header-row *matHeaderRowDef="redesSocialesColumnas"></tr>
@@ -379,7 +392,7 @@
 
       <button mat-flat-button color="primary" class="tablaBotones">Agregar</button>
     </div>
-    <table mat-table [dataSource]="redesSociles" class="mat-elevation-z8 tabla">
+    <table mat-table [dataSource]="idioma" class="mat-elevation-z8 tabla">
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
@@ -387,7 +400,7 @@
         <!-- Position Column -->
         <ng-container matColumnDef="nombre">
           <th mat-header-cell *matHeaderCellDef> Nombre </th>
-          <td mat-cell *matCellDef="let element"> {{element.tipo}} </td>
+          <td mat-cell *matCellDef="let element"> {{element}} </td>
         </ng-container>
       
         <!-- Symbol Column -->
@@ -396,8 +409,8 @@
           <td mat-cell *matCellDef="let element"><button mat-flat-button color="primary" class="tablaBotones"><mat-icon>delete</mat-icon></button>
         </ng-container>
       
-        <tr mat-header-row *matHeaderRowDef="redesSocialesColumnas"></tr>
-        <tr mat-row *matRowDef="let row; columns: redesSocialesColumnas;"></tr>
+        <tr mat-header-row *matHeaderRowDef="tablaIdioma"></tr>
+        <tr mat-row *matRowDef="let row; columns: tablaIdioma;"></tr>
       </table>
 </div>
 </div>

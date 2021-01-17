@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Hoteles } from '../hotelesModel/hoteles';
+import { Hoteles, RedesSociales } from '../hotelesModel/hoteles';
 
 const httpOption = {
     headers: new HttpHeaders({
@@ -29,5 +29,10 @@ const httpOption = {
 
     crearHotel(hotel: Hoteles):Observable<any> {
         return this._http.post(`${this.port}${this.newHotel}`, hotel, httpOption);
+    }
+
+//Funciones XD
+    refreshIdiomas(redes: RedesSociales[]):RedesSociales[]{
+      return redes;
     }
   }

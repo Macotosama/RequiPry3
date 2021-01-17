@@ -4,6 +4,9 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { HotelesService } from '../../../logicaDeNegocios/hoteles/servicios/hotelesService';
 import { Hoteles, RedesSociales } from '../../../logicaDeNegocios/hoteles/hotelesModel/hoteles';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatTableDataSource } from '@angular/material/table';
+import { DataSource } from '@angular/cdk/table';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -89,10 +92,16 @@ export class CrearHotelComponent implements OnInit {
     Validators.minLength(5),
   ]);
 
+  imagen = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(300),
+    Validators.minLength(5),
+  ]);
+
   lunes = new FormControl('', [
     Validators.required,
     Validators.maxLength(7),
-    Validators.minLength(5),
+    Validators.minLength(3),
   ]);
 
   martes = new FormControl('', [
@@ -152,16 +161,40 @@ export class CrearHotelComponent implements OnInit {
   pet: string = 'true';
   ley7600: string = 'true';
 
-  redesSociles: RedesSociales[];
+  redesSociles = new MatTableDataSource<RedesSociales>([]);
   redesSocialesColumnas = ['nombre', 'url', 'accion'];
 
   idioma: string[];
   tablaIdioma = ['nombre', 'accion'];
 
-  constructor(public dialogRef: MatDialogRef<CrearHotelComponent>, private servicio: HotelesService) {
+  constructor(public dialogRef: MatDialogRef<CrearHotelComponent>, private servicio: HotelesService, private _snackBar: MatSnackBar) {
    }
 
   ngOnInit(): void {
+    this.redesSociles.data.push({
+      tipo: 'dsddddddd',
+      url: 'this.urlRedSocia.value'
+    })
+  }
+
+  agregarRedSocial():void {
+    if(this.nombreRedSocial.valid && this.urlRedSocia.valid) {
+      var red: RedesSociales = {
+        tipo: this.nombreRedSocial.value,
+        url: this.urlRedSocia.value
+      }
+      console.log(red)
+      // this.redesSociles.push(red);
+      // this.redesSociles = this.redesSociles
+      this.nombreRedSocial.setValue('');
+      this.nombreRedSocial.reset();
+      console.log(this.redesSociles)
+      // this.redesSociles = this.servicio.refreshIdiomas(this.redesSociles);
+      this.redesSociles.data.push(red);
+      this.redesSociles.data = this.redesSociles.data;
+    } else {
+      this.openSnackBar('Ingrese los datos de la red social');
+    }
   }
 
   crearHOtel():void {
@@ -170,5 +203,12 @@ export class CrearHotelComponent implements OnInit {
 
     // });
   }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, 'cerrar', {
+      duration: 4000,
+    });
+  }
+
 
 }
