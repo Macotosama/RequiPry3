@@ -145,8 +145,8 @@ export class CrearHotelComponent implements OnInit {
 
   idiomas = new FormControl('', [
     Validators.required,
-    Validators.maxLength(100),
-    Validators.minLength(100),
+    Validators.maxLength(15),
+    Validators.minLength(2),
   ]);
 
   pet: string = 'true';
@@ -154,6 +154,9 @@ export class CrearHotelComponent implements OnInit {
 
   redesSociles: RedesSociales[];
   redesSocialesColumnas = ['nombre', 'url', 'accion'];
+
+  idioma: string[];
+  tablaIdioma = ['nombre', 'accion'];
 
   constructor(public dialogRef: MatDialogRef<CrearHotelComponent>, private servicio: HotelesService) {
    }
