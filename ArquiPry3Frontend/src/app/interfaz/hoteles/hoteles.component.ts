@@ -41,7 +41,7 @@ export class HotelesComponent implements OnInit {
 
   dialogAgregarHotel() {
     const dialogRef = this.dialog.open(CrearHotelComponent, {
-      width: '400px', height: '600px'
+      width: '1300px', height: '800px'
     })
   }
 

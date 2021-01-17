@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { HotelesService } from '../../../logicaDeNegocios/hoteles/servicios/hotelesService';
+import { Hoteles } from '../../../logicaDeNegocios/hoteles/hotelesModel/hoteles';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -57,13 +59,110 @@ export class CrearHotelComponent implements OnInit {
     Validators.minLength(4),
   ]);
 
-  pet: boolean = false;
-  ley7600: boolean = true;
+  gps = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(100),
+    Validators.minLength(100),
+  ]);
 
-  constructor(public dialogRef: MatDialogRef<CrearHotelComponent>) {
+  provincia = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(8),
+    Validators.minLength(5),
+  ]);
+
+  canton = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(30),
+    Validators.minLength(5),
+  ]);
+
+  distrito = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(30),
+    Validators.minLength(5),
+  ]);
+
+  sennas = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(300),
+    Validators.minLength(5),
+  ]);
+
+  lunes = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(7),
+    Validators.minLength(5),
+  ]);
+
+  martes = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(7),
+    Validators.minLength(5),
+  ]);
+
+  miercoles = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(7),
+    Validators.minLength(5),
+  ]);
+
+  jueves = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(7),
+    Validators.minLength(5),
+  ]);
+
+  viernes = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(7),
+    Validators.minLength(5),
+  ]);
+
+  sabado = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(7),
+    Validators.minLength(5),
+  ]);
+
+  domingo = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(7),
+    Validators.minLength(5),
+  ]);
+
+  urlRedSocia = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(100),
+    Validators.minLength(100),
+  ]);
+
+  nombreRedSocial = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(100),
+    Validators.minLength(100),
+  ]);
+
+  idiomas = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(100),
+    Validators.minLength(100),
+  ]);
+
+  pet: string = 'true';
+  ley7600: string = 'true';
+
+  constructor(public dialogRef: MatDialogRef<CrearHotelComponent>, private servicio: HotelesService) {
    }
 
   ngOnInit(): void {
+  }
+
+  crearHOtel():void {
+
+    // this.servicio.crearHotel().subscribe(res => {
+
+    // });
   }
 
 }
