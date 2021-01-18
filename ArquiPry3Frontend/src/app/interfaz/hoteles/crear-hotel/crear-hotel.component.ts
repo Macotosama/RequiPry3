@@ -33,7 +33,7 @@ export class CrearHotelComponent implements OnInit {
   nombre = new FormControl('', [
     Validators.required,
     Validators.maxLength(30),
-    Validators.pattern('^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$')
+    // Validators.pattern('^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$')
   ]);
 
   telefono = new FormControl('', [
@@ -54,12 +54,6 @@ export class CrearHotelComponent implements OnInit {
     Validators.maxLength(100),
     Validators.minLength(4),
     Validators.email
-  ]);
-
-  facebook = new FormControl('', [
-    Validators.required,
-    Validators.maxLength(100),
-    Validators.minLength(4),
   ]);
 
   gps = new FormControl('', [
@@ -255,8 +249,8 @@ export class CrearHotelComponent implements OnInit {
   crearHOtel():void {
     if(this.validarHotel()) {
       this.servicio.crearHotel(this.maquetaHotel()).subscribe(res => {
-        console.log(res);
       })
+      this.dialogRef.close();
     } else {
       this.openSnackBar('Ingrese todos los datos correctamente')
     }
@@ -270,24 +264,24 @@ export class CrearHotelComponent implements OnInit {
     var x;
     var d;
     if (this.pet) {
-      x = true;
+      x = 1;
     } else {
-      x = false
+      x = 0
     }
 
     if (this.ley7600) {
-      d = true;
+      d = 1;
     } else {
-      d = false;
+      d = 0;
     }
 
     return {
       idHotel: 0,
-      cedula: this.cedula.value,
+      cedulaJuridica: this.cedula.value,
       nombre: this.nombre.value,
       telefono: this.telefono.value,
-      sitioWep: this.sitioWep.value,
-      correo: this.correoElectronico.value,
+      sitioWeb: this.sitioWep.value,
+      correoElectronico: this.correoElectronico.value,
       petFriendly: x,
       ley7600: d,
       multimedia: this.imagen.value,

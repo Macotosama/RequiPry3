@@ -7,11 +7,11 @@ export interface HotelesBasic {
 
 export interface Hoteles {
     idHotel: number,
-    cedula: string,
+    cedulaJuridica: string,
     nombre: string,
     telefono: string,
-    sitioWep: string,
-    correo: string,
+    sitioWeb: string,
+    correoElectronico: string,
     petFriendly: boolean,
     ley7600: boolean,
     multimedia: string,
