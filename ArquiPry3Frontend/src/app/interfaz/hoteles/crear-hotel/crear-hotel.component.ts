@@ -3,7 +3,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import {ErrorStateMatcher} from '@angular/material/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { HotelesService } from '../../../logicaDeNegocios/hoteles/servicios/hotelesService';
-import { Hoteles, RedesSociales } from '../../../logicaDeNegocios/hoteles/hotelesModel/hoteles';
+import { Hoteles, RedesSociales, Horario, Direccion } from '../../../logicaDeNegocios/hoteles/hotelesModel/hoteles';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { DataSource } from '@angular/cdk/table';
@@ -65,7 +65,7 @@ export class CrearHotelComponent implements OnInit {
   gps = new FormControl('', [
     Validators.required,
     Validators.maxLength(100),
-    Validators.minLength(100),
+    Validators.minLength(5),
   ]);
 
   provincia = new FormControl('', [
@@ -100,43 +100,43 @@ export class CrearHotelComponent implements OnInit {
 
   lunes = new FormControl('', [
     Validators.required,
-    Validators.maxLength(7),
+    Validators.maxLength(30),
     Validators.minLength(3),
   ]);
 
   martes = new FormControl('', [
     Validators.required,
-    Validators.maxLength(7),
+    Validators.maxLength(30),
     Validators.minLength(5),
   ]);
 
   miercoles = new FormControl('', [
     Validators.required,
-    Validators.maxLength(7),
+    Validators.maxLength(30),
     Validators.minLength(5),
   ]);
 
   jueves = new FormControl('', [
     Validators.required,
-    Validators.maxLength(7),
+    Validators.maxLength(30),
     Validators.minLength(5),
   ]);
 
   viernes = new FormControl('', [
     Validators.required,
-    Validators.maxLength(7),
+    Validators.maxLength(30),
     Validators.minLength(5),
   ]);
 
   sabado = new FormControl('', [
     Validators.required,
-    Validators.maxLength(7),
+    Validators.maxLength(30),
     Validators.minLength(5),
   ]);
 
   domingo = new FormControl('', [
     Validators.required,
-    Validators.maxLength(7),
+    Validators.maxLength(30),
     Validators.minLength(5),
   ]);
 
@@ -164,44 +164,161 @@ export class CrearHotelComponent implements OnInit {
   redesSociles = new MatTableDataSource<RedesSociales>([]);
   redesSocialesColumnas = ['nombre', 'url', 'accion'];
 
-  idioma: string[];
+  idioma= new MatTableDataSource<string>([]);
   tablaIdioma = ['nombre', 'accion'];
 
   constructor(public dialogRef: MatDialogRef<CrearHotelComponent>, private servicio: HotelesService, private _snackBar: MatSnackBar) {
    }
 
   ngOnInit(): void {
-    this.redesSociles.data.push({
-      tipo: 'dsddddddd',
-      url: 'this.urlRedSocia.value'
-    })
   }
+
+  agregarIdioma():void {
+    if(this.idiomas.valid) {
+      if (this.validarNuevoIdioma) {
+        this.idioma.data.push(this.idiomas.value);
+        this.idioma.data = this.idioma.data;
+        this.idiomas.setValue('');
+        this.idiomas.reset();
+      } else {
+        this.openSnackBar('Ya existe el idioma ingresado');
+      }
+    }else {
+      this.openSnackBar('Ingrese el nombre del idioma');
+    }
+  }
+
+  eliminarIdioma(nombre: string):void {
+    var redes = this.idioma.data;
+    for (let i = 0; i < redes.length; i++) {
+      if (nombre == redes[i]) {
+        redes.splice(i,1);
+        this.idioma.data = redes;
+      }
+    }
+  }
+
+  validarNuevoIdioma(idioma: string):boolean {
+    var idio = this.idioma.data;
+    var res = true;
+    idio.forEach(item => {
+      if(item == idioma) {
+        res = false;
+      }
+    })
+    return res
+  }
+
 
   agregarRedSocial():void {
     if(this.nombreRedSocial.valid && this.urlRedSocia.valid) {
-      var red: RedesSociales = {
-        tipo: this.nombreRedSocial.value,
-        url: this.urlRedSocia.value
+      if (this.validarNuevaRedSocial()) {
+        var red: RedesSociales = {
+          tipo: this.nombreRedSocial.value,
+          url: this.urlRedSocia.value
+        }
+        this.nombreRedSocial.setValue('');
+        this.nombreRedSocial.reset();
+        this.urlRedSocia.setValue('');
+        this.urlRedSocia.reset();
+        this.redesSociles.data.push(red);
+        this.redesSociles.data = this.redesSociles.data;
+      } else {
+        this.openSnackBar('Ya existe esa red social');
       }
-      console.log(red)
-      // this.redesSociles.push(red);
-      // this.redesSociles = this.redesSociles
-      this.nombreRedSocial.setValue('');
-      this.nombreRedSocial.reset();
-      console.log(this.redesSociles)
-      // this.redesSociles = this.servicio.refreshIdiomas(this.redesSociles);
-      this.redesSociles.data.push(red);
-      this.redesSociles.data = this.redesSociles.data;
     } else {
       this.openSnackBar('Ingrese los datos de la red social');
     }
   }
 
+  eleimnarRedSocial(nombre: string):void {
+    var redes:RedesSociales[] = this.redesSociles.data;
+    for (let i = 0; i < redes.length; i++) {
+      if (nombre == redes[i].tipo) {
+        redes.splice(i,1);
+        this.redesSociles.data = redes;
+      }
+    }
+  }
+
+  validarNuevaRedSocial():boolean {
+    var res = true;
+    var redes:RedesSociales[] = this.redesSociles.data;
+    redes.forEach(item => {
+      if (item.tipo == this.nombreRedSocial.value) {
+        res = false;
+      }}
+    );
+    return res;
+  }
+
   crearHOtel():void {
+    if(this.validarHotel()) {
+      this.servicio.crearHotel(this.maquetaHotel()).subscribe(res => {
+        console.log(res);
+      })
+    } else {
+      this.openSnackBar('Ingrese todos los datos correctamente')
+    }
 
     // this.servicio.crearHotel().subscribe(res => {
 
     // });
+  }
+
+  maquetaHotel():Hoteles {
+    var x;
+    var d;
+    if (this.pet) {
+      x = true;
+    } else {
+      x = false
+    }
+
+    if (this.ley7600) {
+      d = true;
+    } else {
+      d = false;
+    }
+
+    return {
+      idHotel: 0,
+      cedula: this.cedula.value,
+      nombre: this.nombre.value,
+      telefono: this.telefono.value,
+      sitioWep: this.sitioWep.value,
+      correo: this.correoElectronico.value,
+      petFriendly: x,
+      ley7600: d,
+      multimedia: this.imagen.value,
+      idiomas: this.idioma.data,
+      horario: {
+        lunes: this.lunes.value,
+        martes: this.martes.value,
+        miercoles: this.miercoles.value,
+        jueves: this.jueves.value,
+        viernes: this.viernes.value,
+        sabado: this.sabado.value,
+        domingo: this.domingo.value
+      },
+      direccion: {
+        gps: this.gps.value,
+        provincia: this.provincia.value,
+        canton: this.canton.value,
+        distrito: this.distrito.value,
+        senasExactas: this.sennas.value
+      }
+    }
+  }
+
+  validarHotel():boolean {
+    if(this.cedula.valid && this.nombre.valid && this.telefono.valid && this.sitioWep.valid && this.correoElectronico.valid && this.provincia.valid &&
+      this.gps.valid && this.canton.valid && this.distrito.valid && this.sennas.valid && this.lunes.valid && this.martes.valid && this.miercoles.valid &&
+      this.jueves.valid && this.viernes.valid && this.sabado.valid && this.domingo.valid) {
+        return true;
+      } else {
+        return false;
+      }
   }
 
   openSnackBar(message: string) {

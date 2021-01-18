@@ -6,18 +6,39 @@ export interface HotelesBasic {
 }
 
 export interface Hoteles {
-    idHotel: number
+    idHotel: number,
     cedula: string,
     nombre: string,
     telefono: string,
     sitioWep: string,
     correo: string,
-    facebook: string,
     petFriendly: boolean,
-    ley7600: boolean
+    ley7600: boolean,
+    multimedia: string,
+    idiomas: string[],
+    horario: Horario,
+    direccion: Direccion
 }
 
 export interface RedesSociales {
     tipo: string,
     url: string,
+}
+
+export interface Horario {
+    lunes: string,
+    martes: string,
+    miercoles: string,
+    jueves: string,
+    viernes: string,
+    sabado: string,
+    domingo: string
+}
+
+export interface Direccion {
+    gps: string,
+    provincia: string,
+    canton: string,
+    distrito: string,
+    senasExactas: string
 }
