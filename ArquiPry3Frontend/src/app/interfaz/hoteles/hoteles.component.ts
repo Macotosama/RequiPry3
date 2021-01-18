@@ -52,9 +52,7 @@ export class HotelesComponent implements OnInit {
       if (this.hotel.value != null) {
         pex = this.hotel.value;
       }
-      console.log(pex);
       this.servicio.getHotelesFiltro(pex).subscribe(res => {
-        console.log(res , 'XD');
         this,this.dataSource.data = res;
       })
     }

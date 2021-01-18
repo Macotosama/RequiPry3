@@ -1,85 +1,85 @@
 <div class="mainContainer">
     <div class="conte">
         <strong>Cédula Júridica</strong>
-        {{data}}
+        {{infoHotel.cedulaJuridica}}
     </div>
     <div class="conte">
         <strong>Nombre</strong>
-        {{data}}
+        {{infoHotel.nombre}}
     </div>
     <div class="conte">
         <div><strong>Teléfono</strong></div>
-        <div>{{data}}</div>
+        <div>{{infoHotel.telefono}}</div>
     </div>
     <div class="conte">
         <strong>Sitio Web</strong>
-        {{data}}
+        {{infoHotel.sitioWeb}}
     </div>
     <div class="conte">
         <strong>Correo Electrónico</strong>
-        {{data}}
+        {{infoHotel.correoElectronico}}
     </div>
     <div class="conte">
         <strong>Pet Friendly</strong>
-        {{data.petFriendly == true? 'Sí' : 'No'}}
+        {{infoHotel.petFriendly == true? 'Sí' : 'No'}}
     </div>
     <div class="conte">
         <strong>Ley 7600</strong>
-        {{data.ley7600 == true? 'Sí' : 'No'}}
+        {{infoHotel.ley7600 == true? 'Sí' : 'No'}}
     </div>
     <button mat-flat-button color="primary" class="tablaBotones" (click)="cancelar()">Cerrar</button>
 </div>
 <div class="mainContainer">
     <div class="conte">
         <strong>Gps</strong>
-        {{data}}
+        {{infoHotel.direccion.gps}}
     </div>
     <div class="conte">
         <strong>Provincia</strong>
-        {{data}}
+        {{infoHotel.direccion.provincia}}
     </div>
     <div class="conte">
         <div><strong>Canton</strong></div>
-        <div>{{data}}</div>
+        <div>{{infoHotel.direccion.canton}}</div>
     </div>
     <div class="conte">
         <strong>Distrito</strong>
-        {{data}}
+        {{infoHotel.direccion.distrito}}
     </div>
     <div class="conte">
         <strong>Señas</strong>
-        {{data}}
+        {{infoHotel.direccion.senasExactas}}
     </div>
 </div>
 
 <div class="mainContainer">
     <div class="conte">
         <strong>Lunes</strong>
-        {{data}}
+        {{infoHotel.horario.lunes}}
     </div>
     <div class="conte">
         <strong>Martes</strong>
-        {{data}}
+        {{infoHotel.horario.martes}}
     </div>
     <div class="conte">
         <div><strong>Miercoles</strong></div>
-        <div>{{data}}</div>
+        <div>{{infoHotel.horario.miercoles}}</div>
     </div>
     <div class="conte">
         <strong>Jueves</strong>
-        {{data}}
+        {{infoHotel.horario.jueves}}
     </div>
     <div class="conte">
         <strong>Viernes</strong>
-        {{data}}
+        {{infoHotel.horario.sabado}}
     </div>
     <div class="conte">
         <strong>Sabado</strong>
-        {{data}}
+        {{infoHotel.horario.sabado}}
     </div>
     <div class="conte">
         <strong>Domingo</strong>
-        {{data}}
+        {{infoHotel.horario.domingo}}
     </div>
 </div>
 

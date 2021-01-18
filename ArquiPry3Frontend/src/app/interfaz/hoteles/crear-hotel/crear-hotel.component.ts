@@ -301,7 +301,8 @@ export class CrearHotelComponent implements OnInit {
         canton: this.canton.value,
         distrito: this.distrito.value,
         senasExactas: this.sennas.value
-      }
+      },
+      redesSociales: this.redesSociles.data
     }
   }
 

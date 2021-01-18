@@ -17,7 +17,8 @@ export interface Hoteles {
     multimedia: string,
     idiomas: string[],
     horario: Horario,
-    direccion: Direccion
+    direccion: Direccion,
+    redesSociales: RedesSociales[]
 }
 
 export interface RedesSociales {

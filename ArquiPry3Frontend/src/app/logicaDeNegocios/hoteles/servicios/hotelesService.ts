@@ -18,6 +18,7 @@ const httpOption = {
 
     private getHoteles = 'hoteles/ver';
     private newHotel = 'hoteles/crear';
+    private getHotelU = 'hoteles/get';
 
     constructor(
         private _http: HttpClient
@@ -29,6 +30,14 @@ const httpOption = {
       };
       return this._http.post(`${this.port}${this.getHoteles}`, dato, httpOption);
     }
+
+    getHotel(hotelId: number):Observable<any> {
+      var dato = {
+        idHotel: hotelId,
+      };
+      return this._http.post(`${this.port}${this.getHotelU}`, dato, httpOption);
+    }
+      
 
     crearHotel(hotel: Hoteles):Observable<any> {
         return this._http.post(`${this.port}${this.newHotel}`, hotel, httpOption);
