@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Hoteles, RedesSociales, Horario, Direccion } from '../../../logicaDeNegocios/hoteles/hotelesModel/hoteles';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-verinfohotel',
@@ -7,6 +9,11 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./verinfohotel.component.scss']
 })
 export class VerinfohotelComponent implements OnInit {
+  redesSociles = new MatTableDataSource<RedesSociales>([]);
+  redesSocialesColumnas = ['nombre', 'url'];
+
+  idioma= new MatTableDataSource<string>([]);
+  tablaIdioma = ['nombre'];
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<VerinfohotelComponent>) { }
 

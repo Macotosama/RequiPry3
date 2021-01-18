@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Hoteles, RedesSociales } from '../hotelesModel/hoteles';
+import { Hoteles, RedesSociales, HotelesBasic } from '../hotelesModel/hoteles';
 
 const httpOption = {
     headers: new HttpHeaders({
@@ -23,16 +23,14 @@ const httpOption = {
         private _http: HttpClient
     ){}
 
-    getFacturasLocales(hotel: Hoteles):Observable<any> {
-        return this._http.post(`${this.port}${this.getHoteles}`, hotel, httpOption);
+    getHotelesFiltro(hotel: string):Observable<any> {
+      var dato = {
+        filtroNombre: hotel,
+      };
+      return this._http.post(`${this.port}${this.getHoteles}`, dato, httpOption);
     }
 
     crearHotel(hotel: Hoteles):Observable<any> {
         return this._http.post(`${this.port}${this.newHotel}`, hotel, httpOption);
-    }
-
-//Funciones XD
-    refreshIdiomas(redes: RedesSociales[]):RedesSociales[]{
-      return redes;
     }
   }

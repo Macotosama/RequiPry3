@@ -60,10 +60,18 @@
     border-radius: 30px;
     margin: 16px;
     padding: 16px;
+    overflow: hidden;
 }
 
-.tabla {
-    height: 90%;
+.filtro {
+  width: 70%;
+}
+
+.tablaBotones2 {
+  width: 3em;
+  position:initial;
+  // left: 30%;
+  // top: 0%;
 }
 
 .tablaBotones {
@@ -74,6 +82,6 @@
   width: 100em;
 }
 
-// .mas {
-//   font-size: 3em;
-// }
+.example-full-width{
+  width: 100%;
+}

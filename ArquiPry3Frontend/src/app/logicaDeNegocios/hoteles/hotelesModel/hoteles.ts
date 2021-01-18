@@ -1,6 +1,6 @@
 export interface HotelesBasic {
     idHotel: number
-    cedula: string,
+    cedulaJuridica: string,
     nombre: string,
     telefono: string
 }
