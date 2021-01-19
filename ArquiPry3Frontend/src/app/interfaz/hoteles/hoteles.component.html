@@ -67,7 +67,7 @@
                     <ng-container matColumnDef="accion">
                       <th mat-header-cell *matHeaderCellDef> Acción </th>
                       <td mat-cell *matCellDef="let element"> <button mat-flat-button color="primary" class="tablaBotones" (click)="dialogVerInfo(element.idHotel)">Ver más</button>|
-                        <button mat-flat-button color="primary" class="tablaBotones" (click)="dialogEditarInfo(element)">Editar</button> </td>
+                        <button mat-flat-button color="primary" class="tablaBotones" (click)="dialogEditarInfo(element.idHotel)">Editar</button> </td>
                     </ng-container>
                   
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

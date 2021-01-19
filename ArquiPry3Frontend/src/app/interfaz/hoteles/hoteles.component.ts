@@ -66,7 +66,7 @@ export class HotelesComponent implements OnInit {
 
   dialogEditarInfo(item: number) {
     const dialogRef = this.dialog.open(EditarInfoHotelComponent, {
-      width: '400px', height: '600px', data: item
+      width: '1300px', height: '800px', data: item
     })
   }
 

@@ -1,9 +1,12 @@
+<div class="titulo">
+  <span>Crear hotel</span>
+</div>
 <div class="mainContainer">
-  <span>Editar hotel</span>
+
     <form class="example-form">
         <mat-form-field class="example-full-width">
           <mat-label>Cédula Júridica</mat-label>
-          <input type="number" matInput [formControl]="cedula" placeholder="Ex. 9999999999" [errorStateMatcher]="matcher">
+          <input type="number" matInput [formControl]="cedula" placeholder="Ex. 9999999999" [errorStateMatcher]="matcher" required>
           <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
           <mat-error *ngIf="cedula.hasError('maxlength') || cedula.hasError('minlength') || cedula.hasError('pattern')">
             Ingrese una <strong>Cédula Júridica</strong> válida
@@ -17,11 +20,8 @@
       <form class="example-form">
         <mat-form-field class="example-full-width">
           <mat-label>Nombre</mat-label>
-          <input type="text" matInput [formControl]="nombre" placeholder="Ex. Name" [errorStateMatcher]="matcher">
+          <input type="text" matInput [formControl]="nombre" placeholder="Ex. Name" [errorStateMatcher]="matcher" required>
           <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-          <mat-error *ngIf="nombre.hasError('pattern')">
-            Ingrese un <strong>Nombre</strong> válido
-          </mat-error>
           <mat-error *ngIf="nombre.hasError('maxlength')">
             Exedio el tamaño <strong>máximo</strong> par el nombre
           </mat-error>
@@ -34,7 +34,7 @@
       <form class="example-form">
         <mat-form-field class="example-full-width">
           <mat-label>Teléfono</mat-label>
-          <input type="number" matInput [formControl]="telefono" placeholder="Ex. 88888888" [errorStateMatcher]="matcher">
+          <input type="number" matInput [formControl]="telefono" placeholder="Ex. 88888888" [errorStateMatcher]="matcher" required>
           <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
           <mat-error *ngIf="telefono.hasError('maxlength') || telefono.hasError('minlength') || telefono.hasError('pattern')">
             Ingrese un n° de <strong>Teléfono</strong> válido
@@ -48,7 +48,7 @@
       <form class="example-form">
         <mat-form-field class="example-full-width">
           <mat-label>Sitio Wep</mat-label>
-          <input type="text" matInput [formControl]="sitioWep" placeholder="Ex. www.xnxxx.com" [errorStateMatcher]="matcher">
+          <input type="text" matInput [formControl]="sitioWep" placeholder="Ex. www.xnxxx.com" [errorStateMatcher]="matcher" required>
           <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
           <mat-error *ngIf="sitioWep.hasError('maxlength') || sitioWep.hasError('minlength')">
             Ingrese una <strong>URL</strong> válida
@@ -62,28 +62,27 @@
       <form class="example-form">
         <mat-form-field class="example-full-width">
           <mat-label>Coreo Eletrónico</mat-label>
-          <input type="email" matInput [formControl]="sitioWep" placeholder="Ex. abc@cba.com" [errorStateMatcher]="matcher">
+          <input type="email" matInput [formControl]="correoElectronico" placeholder="Ex. abc@cba.com" [errorStateMatcher]="matcher" required>
           <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
           <mat-error *ngIf="nombre.hasError('email')">
             Ingrese un <strong>Coreo Eletrónico</strong> válido
           </mat-error>
-          <mat-error *ngIf="nombre.hasError('minlength')">
+          <mat-error *ngIf="correoElectronico.hasError('minlength')">
             No cumple con el tamaño <strong>mínimo</strong> para el Coreo Eletrónico
           </mat-error>
-          <mat-error *ngIf="nombre.hasError('maxlength')">
+          <mat-error *ngIf="correoElectronico.hasError('maxlength')">
             Exedio el tamaño <strong>máximo</strong> para el Coreo Eletrónico
           </mat-error>
-          <mat-error *ngIf="sitioWep.hasError('required')">
+          <mat-error *ngIf="correoElectronico.hasError('required')">
             Ingrese el <strong>Coreo Eletrónico</strong> del hotel
           </mat-error>
         </mat-form-field>
       </form>
 
-      <form class="example-form">
+      <!-- <form class="example-form">
         <mat-form-field class="example-full-width">
           <mat-label>Facebook</mat-label>
           <input type="text" matInput [formControl]="sitioWep" placeholder="Ex. yourFacebook.com" [errorStateMatcher]="matcher">
-          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
           <mat-error *ngIf="sitioWep.hasError('maxlength') || sitioWep.hasError('minlength')">
             Ingrese una <strong>URL</strong> válida
           </mat-error>
@@ -91,7 +90,7 @@
             Ingrese la <strong>URL</strong> del facebook
           </mat-error>
         </mat-form-field>
-      </form>
+      </form> -->
       <div>
         <label id="Ppet">Pet Friendly</label>
         <mat-radio-group aria-label="Select an option" aria-labelledby="Ppet" [(ngModel)]="pet"><br>
@@ -107,5 +106,310 @@
         </mat-radio-group>
       </div>
 
-      <button mat-flat-button color="primary">Aceptar</button>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>GPS</mat-label>
+      <input type="text" matInput [formControl]="gps" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="gps.hasError('minlength')">
+        No cumple con el tamaño <strong>mínimo</strong> para el Coreo Eletrónico
+      </mat-error>
+      <mat-error *ngIf="gps.hasError('maxlength')">
+        Exedio el tamaño <strong>máximo</strong> para el Coreo Eletrónico
+      </mat-error>
+      <mat-error *ngIf="gps.hasError('required')">
+        Ingrese el <strong>Coreo Eletrónico</strong> del hotel
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Provincia</mat-label>
+      <input type="text" matInput [formControl]="provincia" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="provincia.hasError('minlength')">
+        No cumple con el tamaño <strong>mínimo</strong> para el Coreo Eletrónico
+      </mat-error>
+      <mat-error *ngIf="provincia.hasError('maxlength')">
+        Exedio el tamaño <strong>máximo</strong> para el Coreo Eletrónico
+      </mat-error>
+      <mat-error *ngIf="provincia.hasError('required')">
+        Ingrese el <strong>Coreo Eletrónico</strong> del hotel
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Canton</mat-label>
+      <input type="text" matInput [formControl]="canton" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="canton.hasError('minlength') || canton.hasError('maxlength')">
+        No cumple con el tamaño <strong>Permitido</strong>
+      </mat-error>
+      <mat-error *ngIf="canton.hasError('required')">
+        Ingrese el <strong>Canton</strong> del hotel
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Distrito</mat-label>
+      <input type="text" matInput [formControl]="distrito" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="distrito.hasError('minlength') || distrito.hasError('maxlength')">
+        No cumple con el tamaño <strong>Permitido</strong>
+      </mat-error>
+      <mat-error *ngIf="distrito.hasError('required')">
+        Ingrese el <strong>Distrito</strong> del hotel
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Señas</mat-label>
+      <input type="text" matInput [formControl]="sennas" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="sennas.hasError('minlength') || sennas.hasError('maxlength')">
+        No cumple con el tamaño <strong>Permitido</strong>
+      </mat-error>
+      <mat-error *ngIf="sennas.hasError('required')">
+        Ingrese el <strong>Distrito</strong> del hotel
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Imagen</mat-label>
+      <input type="text" matInput [formControl]="imagen" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="imagen.hasError('minlength') || imagen.hasError('maxlength')">
+        No cumple con el tamaño <strong>Permitido</strong>
+      </mat-error>
+      <mat-error *ngIf="imagen.hasError('required')">
+        Ingrese el <strong>Distrito</strong> del hotel
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+</div>
+
+<div class="titulo">
+  <span class="titulo2">Horario</span>
+</div>
+
+<div class="direcciones">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Lunes</mat-label>
+      <input type="text" matInput [formControl]="lunes" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="lunes.hasError('minlength') || lunes.hasError('maxlength')">
+        No cumple con el tamaño <strong>Permitido</strong>
+      </mat-error>
+      <mat-error *ngIf="lunes.hasError('required')">
+        Ingrese el <strong>horario</strong> del lunes
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Martes</mat-label>
+      <input type="text" matInput [formControl]="martes" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="martes.hasError('minlength') || martes.hasError('maxlength')">
+        No cumple con el tamaño <strong>Permitido</strong>
+      </mat-error>
+      <mat-error *ngIf="martes.hasError('required')">
+        Ingrese el <strong>horario</strong> del martes
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Miercoles</mat-label>
+      <input type="text" matInput [formControl]="miercoles" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="miercoles.hasError('minlength') || miercoles.hasError('maxlength')">
+        No cumple con el tamaño <strong>Permitido</strong>
+      </mat-error>
+      <mat-error *ngIf="miercoles.hasError('required')">
+        Ingrese el <strong>horario</strong> del miercoles
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Jueves</mat-label>
+      <input type="text" matInput [formControl]="jueves" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="jueves.hasError('minlength') || jueves.hasError('maxlength')">
+        No cumple con el tamaño <strong>Permitido</strong>
+      </mat-error>
+      <mat-error *ngIf="jueves.hasError('required')">
+        Ingrese el <strong>horario</strong> del jueves
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Viernes</mat-label>
+      <input type="text" matInput [formControl]="viernes" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="viernes.hasError('minlength') || viernes.hasError('maxlength')">
+        No cumple con el tamaño <strong>Permitido</strong>
+      </mat-error>
+      <mat-error *ngIf="viernes.hasError('required')">
+        Ingrese el <strong>horario</strong> del viernes
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Sábado</mat-label>
+      <input type="text" matInput [formControl]="sabado" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="sabado.hasError('minlength') || sabado.hasError('maxlength')">
+        No cumple con el tamaño <strong>Permitido</strong>
+      </mat-error>
+      <mat-error *ngIf="sabado.hasError('required')">
+        Ingrese el <strong>horario</strong> del sábado
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Domingo</mat-label>
+      <input type="text" matInput [formControl]="domingo" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="domingo.hasError('minlength') || domingo.hasError('maxlength')">
+        No cumple con el tamaño <strong>Permitido</strong>
+      </mat-error>
+      <mat-error *ngIf="domingo.hasError('required')">
+        Ingrese el <strong>horario</strong> del domingo
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+
+<div class="redesSociales">
+    <div class="tableContainer">
+      <div class="titulo">
+        <span class="titulo2">Redes Sociales</span>
+      </div>
+      <div class="redSocial">
+        <form class="example-form">
+          <mat-form-field class="example-full-width2">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput [formControl]="nombreRedSocial" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+            <mat-error *ngIf="nombreRedSocial.hasError('minlength') || nombreRedSocial.hasError('maxlength')">
+              No cumple con el tamaño <strong>Permitido</strong>
+            </mat-error>
+            <mat-error *ngIf="nombreRedSocial.hasError('required')">
+              Ingrese el <strong>Nombre</strong> del nombreRedSocial
+            </mat-error>
+          </mat-form-field>
+        </form>
+
+        <form class="example-form">
+          <mat-form-field class="example-full-width2">
+            <mat-label>URL</mat-label>
+            <input type="text" matInput [formControl]="urlRedSocia" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+            <mat-error *ngIf="urlRedSocia.hasError('minlength') || urlRedSocia.hasError('maxlength')">
+              No cumple con el tamaño <strong>Permitido</strong>
+            </mat-error>
+            <mat-error *ngIf="urlRedSocia.hasError('required')">
+              Ingrese la <strong>URL</strong>
+            </mat-error>
+          </mat-form-field>
+        </form>
+
+        <button mat-flat-button color="primary" class="tablaBotones" (click)="agregarRedSocial()">Agregar</button>
+      </div>
+      <table mat-table [dataSource]="redesSociles" class="mat-elevation-z8 tabla">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.tipo}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="url">
+            <th mat-header-cell *matHeaderCellDef> URL </th>
+            <td mat-cell *matCellDef="let element"> {{element.url}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="accion">
+            <th mat-header-cell *matHeaderCellDef> Acción </th>
+            <td mat-cell *matCellDef="let element"> <button mat-flat-button color="primary" class="tablaBotones" (click)="eleimnarRedSocial(element.tipo)"><mat-icon>delete</mat-icon></button>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="redesSocialesColumnas"></tr>
+          <tr mat-row *matRowDef="let row; columns: redesSocialesColumnas;"></tr>
+        </table>
+  </div>
+
+  <div class="tableContainer">
+    <div class="titulo">
+      <span class="titulo2">Idiomas</span>
+    </div>
+    <div class="redSocial">
+      <form class="example-form">
+        <mat-form-field class="example-full-width2">
+          <mat-label>Idioma</mat-label>
+          <input type="text" matInput [formControl]="idiomas" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="idiomas.hasError('minlength') || idiomas.hasError('maxlength')">
+            No cumple con el tamaño <strong>Permitido</strong>
+          </mat-error>
+          <mat-error *ngIf="idiomas.hasError('required')">
+            Ingrese el <strong>idioma</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+
+      <button mat-flat-button color="primary" class="tablaBotones" (click)="agregarIdioma()">Agregar</button>
+    </div>
+    <table mat-table [dataSource]="idioma" class="mat-elevation-z8 tabla">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="accion">
+          <th mat-header-cell *matHeaderCellDef> Acción </th>
+          <td mat-cell *matCellDef="let element"><button mat-flat-button color="primary" class="tablaBotones" (click)="eliminarIdioma(element)"><mat-icon>delete</mat-icon></button>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="tablaIdioma"></tr>
+        <tr mat-row *matRowDef="let row; columns: tablaIdioma;"></tr>
+      </table>
+</div>
+  <div class="final">
+    <button mat-flat-button color="primary" (click)="crearHOtel()">Aceptar</button>
+  </div>
 </div>
