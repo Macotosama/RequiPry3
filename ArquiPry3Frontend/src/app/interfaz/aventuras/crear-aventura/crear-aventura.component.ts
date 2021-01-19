@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { AventurasService } from '../../../logicaDeNegocios/aventuras/servicios/aventurasService';
+import { Aventura } from '../../../logicaDeNegocios/aventuras/aventurasModel/aventuras';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -75,10 +77,42 @@ export class CrearAventuraComponent implements OnInit {
     Validators.minLength(5),
   ]);
 
-  constructor(public dialogRef: MatDialogRef<CrearAventuraComponent>) {
+  constructor(public dialogRef: MatDialogRef<CrearAventuraComponent>, private servicio: AventurasService) {
    }
 
   ngOnInit(): void {
+  }
+
+  crearAventura() {
+    if (this.validarAventuras()) {
+      var XD:Aventura = {
+        idEmpresaAventura: 0,
+        cedulaJuridica: this.cedula.value,
+        nombre: this.nombre.value,
+        contacto: this.telefono.value,
+        correoElectronico: this.correoElectronico.value,
+          activo: 0,
+          direccion: {
+            gps: this.gps.value,
+            provincia: this.provincia.value,
+            canton: this.canton.value,
+            distrito: this.distrito.value,
+            senasExactas: this.sennas.value
+          }
+      }
+      this.servicio.crearAventura(XD).subscribe(res => {
+        
+      });
+    }
+  }
+
+  validarAventuras():boolean {
+    if (this.cedula.valid && this.nombre.valid && this.correoElectronico.valid && this.telefono.valid && this.gps.valid
+      && this.provincia.valid && this.canton.valid && this.distrito.valid && this.sennas.valid) {
+        return true;
+    } else {
+      return false;
+    }
   }
 
 }

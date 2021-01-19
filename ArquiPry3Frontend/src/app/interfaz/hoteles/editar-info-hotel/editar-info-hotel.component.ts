@@ -174,9 +174,43 @@ export class EditarInfoHotelComponent implements OnInit {
     this.servicio.getHotel(this.data).subscribe(res => {
       console.log(res)
       this.infoHotel = res[0];
+      this.ponerInfo(this.infoHotel);
       // this.idioma.data = this.infoHotel.idiomas;
       // this.redesSociles.data = this.infoHotel.redesSociales;
     })
+  }
+
+  ponerInfo(res: any):void {
+    this.cedula.setValue(res.cedulaJuridica);
+    this.nombre.setValue(res.nombre);
+    this.telefono.setValue(res.telefono);
+    this.sitioWep.setValue(res.sitioWeb);
+    this.correoElectronico.setValue(res.correoElectronico);
+    if (res.petFriendly) {
+      this.pet = 'true';
+    } else {
+      this.pet = 'false';
+    }
+    if (res.ley7600) {
+      this.ley7600 = 'true';
+    } else {
+      this.ley7600 = 'false';
+    }
+    // this.pet = res.petFriendly;
+    // this.ley7600 = res.ley7600;
+    this.imagen.setValue(res.multimedia);
+    this.lunes.setValue(res.lunes);
+    this.martes.setValue(res.martes);
+    this.miercoles.setValue(res.miercoles);
+    this.jueves.setValue(res.jueves);
+    this.viernes.setValue(res.viernes);
+    this.sabado.setValue(res.sabado);
+    this.domingo.setValue(res.domingo);
+    this.gps.setValue(res.gps);
+    this.provincia.setValue(res.provincia);
+    this.canton.setValue(res.canton);
+    this.distrito.setValue(res.distrito);
+    this.sennas.setValue(res.senasExactas);
   }
 
   agregarIdioma():void {
