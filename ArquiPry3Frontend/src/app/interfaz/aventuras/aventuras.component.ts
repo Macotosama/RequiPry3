@@ -41,7 +41,7 @@ export class AventurasComponent implements OnInit {
 
   dialogAgregar() {
     const dialogRef = this.dialog.open(CrearAventuraComponent, {
-      width: '400px', height: '600px'
+      width: '1300px', height: '800px'
     })
   }
 

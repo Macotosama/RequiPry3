@@ -45,6 +45,36 @@ export class CrearAventuraComponent implements OnInit {
     Validators.email
   ]);
 
+  gps = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(100),
+    Validators.minLength(5),
+  ]);
+
+  provincia = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(8),
+    Validators.minLength(5),
+  ]);
+
+  canton = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(30),
+    Validators.minLength(5),
+  ]);
+
+  distrito = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(30),
+    Validators.minLength(5),
+  ]);
+
+  sennas = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(300),
+    Validators.minLength(5),
+  ]);
+
   constructor(public dialogRef: MatDialogRef<CrearAventuraComponent>) {
    }
 

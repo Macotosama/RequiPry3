@@ -16,7 +16,7 @@ export class VerinfohotelComponent implements OnInit {
   idioma= new MatTableDataSource<string>([]);
   tablaIdioma = ['nombre'];
 
-  infoHotel: Hoteles;
+  infoHotel: any;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: number, public dialogRef: MatDialogRef<VerinfohotelComponent>,  private servicio: HotelesService) { }
 
@@ -29,8 +29,8 @@ export class VerinfohotelComponent implements OnInit {
     this.servicio.getHotel(this.data).subscribe(res => {
       console.log(res)
       this.infoHotel = res[0];
-      this.idioma.data = this.infoHotel.idiomas;
-      this.redesSociles.data = this.infoHotel.redesSociales;
+      // this.idioma.data = this.infoHotel.idiomas;
+      // this.redesSociles.data = this.infoHotel.redesSociales;
     })
   }
 
