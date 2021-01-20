@@ -60,6 +60,7 @@ const httpOption = {
     }
 
     editarHotel(hotel: Hoteles):Observable<any> {
-      return this._http.post(`${this.port}${this.eidtHoteles}`,hotel,httpOption);
+      console.log(hotel)
+      return this._http.put(`${this.port}${this.eidtHoteles}`,hotel,httpOption);
     }
   }

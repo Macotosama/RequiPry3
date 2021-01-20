@@ -347,7 +347,7 @@ export class EditarInfoHotelComponent implements OnInit {
     });
 
     return {
-      idHotel: this.infoHotel.idHotel,
+      idHotel: this.data,
       cedulaJuridica: this.cedula.value,
       nombre: this.nombre.value,
       telefono: this.telefono.value,

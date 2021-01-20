@@ -35,6 +35,12 @@ const httpOption = {
       return this._http.post(`${this.port}${this.verFiltro}`,dato,httpOption);
     }
 
+    // verInfoAventura(aventura: number):Observable<any> {
+    //   var dato = {
+
+    //   }
+    // }
+
     // getHotelesFiltro(hotel: string):Observable<any> {
     //     var dato = {
     //       filtroNombre: hotel,
