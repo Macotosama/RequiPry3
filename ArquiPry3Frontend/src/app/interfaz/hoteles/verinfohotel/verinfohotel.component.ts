@@ -10,10 +10,10 @@ import { HotelesService } from '../../../logicaDeNegocios/hoteles/servicios/hote
   styleUrls: ['./verinfohotel.component.scss']
 })
 export class VerinfohotelComponent implements OnInit {
-  redesSociles = new MatTableDataSource<RedesSociales>([]);
+  redesSociles = new MatTableDataSource<any>([]);
   redesSocialesColumnas = ['nombre', 'url'];
 
-  idioma= new MatTableDataSource<string>([]);
+  idioma= new MatTableDataSource<any>([]);
   tablaIdioma = ['nombre'];
 
   infoHotel: any;
@@ -22,15 +22,25 @@ export class VerinfohotelComponent implements OnInit {
 
   ngOnInit(): void {
     this.datosHotel();
+    this.datosHotel2();
+    this.datosHotel3();
   }
 
   datosHotel():void {
-    console.log(this.data)
     this.servicio.getHotel(this.data).subscribe(res => {
-      console.log(res)
       this.infoHotel = res[0];
-      // this.idioma.data = this.infoHotel.idiomas;
-      // this.redesSociles.data = this.infoHotel.redesSociales;
+    })
+  }
+
+  datosHotel2():void {
+    this.servicio.getIdioma(this.data).subscribe(res2 => {
+      this.idioma.data = res2;
+    })
+  }
+
+  datosHotel3():void {
+    this.servicio.getRede(this.data).subscribe(res3 => {
+      this.redesSociles.data = res3;
     })
   }
 

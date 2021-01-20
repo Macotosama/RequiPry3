@@ -155,10 +155,10 @@ export class EditarInfoHotelComponent implements OnInit {
   pet: string = 'true';
   ley7600: string = 'true';
 
-  redesSociles = new MatTableDataSource<RedesSociales>([]);
+  redesSociles = new MatTableDataSource<any>([]);
   redesSocialesColumnas = ['nombre', 'url', 'accion'];
 
-  idioma= new MatTableDataSource<string>([]);
+  idioma= new MatTableDataSource<any>([]);
   tablaIdioma = ['nombre', 'accion'];
 
   infoHotel: any;
@@ -167,6 +167,8 @@ export class EditarInfoHotelComponent implements OnInit {
 
    ngOnInit(): void {
     this.datosHotel();
+    this.datosHotel2();
+    this.datosHotel3();
   }
 
   datosHotel():void {
@@ -196,8 +198,6 @@ export class EditarInfoHotelComponent implements OnInit {
     } else {
       this.ley7600 = 'false';
     }
-    // this.pet = res.petFriendly;
-    // this.ley7600 = res.ley7600;
     this.imagen.setValue(res.multimedia);
     this.lunes.setValue(res.lunes);
     this.martes.setValue(res.martes);
@@ -211,6 +211,19 @@ export class EditarInfoHotelComponent implements OnInit {
     this.canton.setValue(res.canton);
     this.distrito.setValue(res.distrito);
     this.sennas.setValue(res.senasExactas);
+  }
+
+
+  datosHotel2():void {
+    this.servicio.getIdioma(this.data).subscribe(res2 => {
+      this.idioma.data = res2;
+    })
+  }
+
+  datosHotel3():void {
+    this.servicio.getRede(this.data).subscribe(res3 => {
+      this.redesSociles.data = res3;
+    })
   }
 
   agregarIdioma():void {
@@ -321,6 +334,19 @@ export class EditarInfoHotelComponent implements OnInit {
       d = 0;
     }
 
+    var rede: RedesSociales[];
+    this.redesSociles.data.forEach(res =>{
+      rede.push({
+        tipo: res.tipoRedSocial,
+        url: res.urlRedSocial,
+      });
+    });
+
+    var idio: string[];
+    this.idioma.data.forEach(res => {
+      idio.push(res.idioma);
+    });
+
     return {
       idHotel: 0,
       cedulaJuridica: this.cedula.value,
@@ -331,7 +357,7 @@ export class EditarInfoHotelComponent implements OnInit {
       petFriendly: x,
       ley7600: d,
       multimedia: this.imagen.value,
-      idiomas: this.idioma.data,
+      idiomas: idio,
       horario: {
         lunes: this.lunes.value,
         martes: this.martes.value,
@@ -348,7 +374,7 @@ export class EditarInfoHotelComponent implements OnInit {
         distrito: this.distrito.value,
         senasExactas: this.sennas.value
       },
-      redesSociales: this.redesSociles.data
+      redesSociales: rede
     }
   }
 

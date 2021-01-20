@@ -16,13 +16,14 @@ const httpOption = {
   export class AventurasService {
     private port = 'http://localhost:9000/';
     
-    private crear = 'habitaciones/crear';
+    private crear = 'empresas/crear';
 
     constructor(
         private _http: HttpClient
     ){}
 
     crearAventura(aventura: Aventura):Observable<any> {
+      console.log(aventura);
       return this._http.post(`${this.port}${this.crear}`,aventura, httpOption);
     }
 

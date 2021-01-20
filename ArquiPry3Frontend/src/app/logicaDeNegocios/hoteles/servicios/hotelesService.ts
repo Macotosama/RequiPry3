@@ -19,6 +19,8 @@ const httpOption = {
     private getHoteles = 'hoteles/ver';
     private newHotel = 'hoteles/crear';
     private getHotelU = 'hoteles/get';
+    private getRedes = 'hoteles/redes';
+    private getIdiomas = 'hoteles/idiomas';
 
     constructor(
         private _http: HttpClient
@@ -38,6 +40,19 @@ const httpOption = {
       return this._http.post(`${this.port}${this.getHotelU}`, dato, httpOption);
     }
       
+    getIdioma(hotelId: number):Observable<any> {
+      var dato = {
+        idHotel: hotelId,
+      };
+      return this._http.post(`${this.port}${this.getIdiomas}`, dato, httpOption);
+    }
+
+    getRede(hotelId: number):Observable<any> {
+      var dato = {
+        idHotel: hotelId,
+      };
+      return this._http.post(`${this.port}${this.getRedes}`, dato, httpOption);
+    }
 
     crearHotel(hotel: Hoteles):Observable<any> {
         return this._http.post(`${this.port}${this.newHotel}`, hotel, httpOption);
