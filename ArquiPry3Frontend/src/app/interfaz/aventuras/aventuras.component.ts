@@ -6,6 +6,18 @@ import { MatDialog } from '@angular/material/dialog';
 import { VerinfoaventuraComponent } from './verinfoaventura/verinfoaventura.component';
 import { EditarInfoAventuraComponent } from './editar-info-aventura/editar-info-aventura.component';
 import { CrearAventuraComponent } from './crear-aventura/crear-aventura.component';
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
+import { AventurasService } from '../../logicaDeNegocios/aventuras/servicios/aventurasService';
+import { Aventura } from '../../logicaDeNegocios/aventuras/aventurasModel/aventuras';
+import { MatTableDataSource } from '@angular/material/table';
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-aventuras',
@@ -13,7 +25,7 @@ import { CrearAventuraComponent } from './crear-aventura/crear-aventura.componen
   styleUrls: ['./aventuras.component.scss']
 })
 export class AventurasComponent implements OnInit {
-  dataSource = ['1','2','3','4','5','6','7','8','9','10'];
+  dataSource = new MatTableDataSource<any>([]);
   displayedColumns = ['cedula' ,'nombre', 'telefono', 'accion'];
   
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -21,8 +33,14 @@ export class AventurasComponent implements OnInit {
     map(result => result.matches),
     shareReplay()
   );
+  matcher = new MyErrorStateMatcher();
 
-  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog) { }
+  hotel = new FormControl('', [
+    Validators.maxLength(30),
+    Validators.minLength(0),
+  ]);
+
+  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog, private servicio: AventurasService) { }
 
   ngOnInit(): void {
   }
@@ -43,6 +61,18 @@ export class AventurasComponent implements OnInit {
     const dialogRef = this.dialog.open(CrearAventuraComponent, {
       width: '1300px', height: '400px'
     })
+  }
+
+  verAventuras():void {
+    if (this.hotel.valid) {
+      var pex = '';
+      if (this.hotel.value != null) {
+        pex = this.hotel.value;
+      }
+      this.servicio.aventurasFiltro(pex).subscribe(res => {
+        this.dataSource.data = res;
+      })
+    }
   }
 
 }

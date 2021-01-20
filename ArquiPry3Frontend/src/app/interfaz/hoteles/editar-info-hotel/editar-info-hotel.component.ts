@@ -174,7 +174,6 @@ export class EditarInfoHotelComponent implements OnInit {
   datosHotel():void {
     console.log(this.data)
     this.servicio.getHotel(this.data).subscribe(res => {
-      console.log(res)
       this.infoHotel = res[0];
       this.ponerInfo(this.infoHotel);
       // this.idioma.data = this.infoHotel.idiomas;
@@ -307,7 +306,7 @@ export class EditarInfoHotelComponent implements OnInit {
 
   crearHOtel():void {
     if(this.validarHotel()) {
-      this.servicio.crearHotel(this.maquetaHotel()).subscribe(res => {
+      this.servicio.editarHotel(this.maquetaHotel()).subscribe(res => {
       })
       this.dialogRef.close();
     } else {
@@ -334,7 +333,7 @@ export class EditarInfoHotelComponent implements OnInit {
       d = 0;
     }
 
-    var rede: RedesSociales[];
+    var rede: RedesSociales[] = [];
     this.redesSociles.data.forEach(res =>{
       rede.push({
         tipo: res.tipoRedSocial,
@@ -342,13 +341,13 @@ export class EditarInfoHotelComponent implements OnInit {
       });
     });
 
-    var idio: string[];
+    var idio: string[] = [];
     this.idioma.data.forEach(res => {
       idio.push(res.idioma);
     });
 
     return {
-      idHotel: 0,
+      idHotel: this.infoHotel.idHotel,
       cedulaJuridica: this.cedula.value,
       nombre: this.nombre.value,
       telefono: this.telefono.value,

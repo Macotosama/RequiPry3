@@ -17,6 +17,7 @@ const httpOption = {
     private port = 'http://localhost:9000/';
     
     private crear = 'empresas/crear';
+    private verFiltro = 'empresas/ver';
 
     constructor(
         private _http: HttpClient
@@ -25,6 +26,13 @@ const httpOption = {
     crearAventura(aventura: Aventura):Observable<any> {
       console.log(aventura);
       return this._http.post(`${this.port}${this.crear}`,aventura, httpOption);
+    }
+
+    aventurasFiltro(aventura: string):Observable<any> {
+      var dato = {
+        filtroNombre: aventura,
+      };
+      return this._http.post(`${this.port}${this.verFiltro}`,dato,httpOption);
     }
 
     // getHotelesFiltro(hotel: string):Observable<any> {

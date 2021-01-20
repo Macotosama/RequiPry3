@@ -40,6 +40,10 @@
   font-size: 4em;
 }
 
+.filtro {
+  width: 70%;
+}
+
 .mainContainer {
     position: absolute;
     top: 20%;
@@ -62,14 +66,14 @@
     padding: 16px;
 }
 
-.tabla {
-    height: 90%;
-}
-
 .tablaBotones {
     width: 6em;
 }
 
 .XD {
   width: 100em;
+}
+
+.example-full-width{
+  width: 100%;
 }

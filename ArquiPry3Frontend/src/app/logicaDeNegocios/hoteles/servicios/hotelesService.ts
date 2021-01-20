@@ -21,6 +21,7 @@ const httpOption = {
     private getHotelU = 'hoteles/get';
     private getRedes = 'hoteles/redes';
     private getIdiomas = 'hoteles/idiomas';
+    private eidtHoteles = 'hoteles/actualizar';
 
     constructor(
         private _http: HttpClient
@@ -56,5 +57,9 @@ const httpOption = {
 
     crearHotel(hotel: Hoteles):Observable<any> {
         return this._http.post(`${this.port}${this.newHotel}`, hotel, httpOption);
+    }
+
+    editarHotel(hotel: Hoteles):Observable<any> {
+      return this._http.post(`${this.port}${this.eidtHoteles}`,hotel,httpOption);
     }
   }
