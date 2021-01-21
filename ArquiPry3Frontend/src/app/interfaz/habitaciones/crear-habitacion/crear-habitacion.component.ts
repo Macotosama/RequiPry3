@@ -7,6 +7,7 @@ import { Habitacion } from '../../../logicaDeNegocios/habitaciones/habitacionesM
 import { Hoteles, RedesSociales, Horario, Direccion, HotelesBasic } from '../../../logicaDeNegocios/hoteles/hotelesModel/hoteles';
 import { HotelesService } from '../../../logicaDeNegocios/hoteles/servicios/hotelesService';
 import { MatTableDataSource } from '@angular/material/table';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -33,7 +34,7 @@ export class CrearHabitacionComponent implements OnInit {
   categoria = new FormControl('', [
     Validators.required,
     Validators.maxLength(30),
-    Validators.pattern('^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$')
+    // Validators.pattern('^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$')
   ]);
 
   precio = new FormControl('', [
@@ -51,13 +52,20 @@ export class CrearHabitacionComponent implements OnInit {
 
   hotel = new FormControl('', [
     Validators.maxLength(30),
+    Validators.minLength(1),
+    Validators.required,
+  ]);
+
+  hotel2 = new FormControl('', [
+    Validators.maxLength(30),
     Validators.minLength(0),
   ]);
 
   dataSource = new MatTableDataSource<HotelesBasic>([]);
   displayedColumns = ['cedula' ,'nombre', 'telefono'];
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<CrearHabitacionComponent>, private servicios: HabitacionService, private servicios2: HotelesService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<CrearHabitacionComponent>, private servicios: HabitacionService,
+  private servicios2: HotelesService, private _snackBar: MatSnackBar) {
     this.numeroHabitacion.setValue(data);
     this.precio.setValue(data);
     this.descripcion.setValue(data);
@@ -67,9 +75,13 @@ export class CrearHabitacionComponent implements OnInit {
   }
 
   crearHabitacion():void {
-    // if (this.validDatos()) {
-    //   this.servicios.crearHabitacion()
-    // }
+    if (this.validDatos()) {
+      this.servicios.crearHabitacion(this.crearMaqueta()).subscribe(res => {
+        this.openSnackBar('Se creo correctamente la habitación')
+      })
+    } else {
+      this.openSnackBar('Ingrese todos los datos correctamente')
+    }
   }
 
   crearMaqueta():Habitacion {
@@ -77,12 +89,12 @@ export class CrearHabitacionComponent implements OnInit {
       numeroHabitacion: this.numeroHabitacion.value,
       dsecripcion: this.descripcion.value,
       precio: this.precio.value,
-      hotelId: 1
+      idHotel: this.idHotel
     }
   }
 
   validDatos():boolean {
-    if(this.numeroHabitacion.valid && this.categoria.valid && this.precio.valid && this.descripcion.valid) {
+    if(this.numeroHabitacion.valid && this.categoria.valid && this.precio.valid && this.descripcion.valid && this.hotel.valid) {
       return true;
     } else {
       return false;
@@ -90,15 +102,26 @@ export class CrearHabitacionComponent implements OnInit {
   }
 
   verHoteles():void {
-    if (this.hotel.valid) {
+    if (this.hotel2.valid) {
       var pex = '';
-      if (this.hotel.value != null) {
-        pex = this.hotel.value;
+      if (this.hotel2.value != null) {
+        pex = this.hotel2.value;
       }
       this.servicios2.getHotelesFiltro(pex).subscribe(res => {
         this,this.dataSource.data = res;
       })
     }
+  }
+
+  clickHotel(nombre: string, id: number):void {
+    this.hotel.setValue(nombre);
+    this.idHotel = id;
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, 'cerrar', {
+      duration: 4000,
+    });
   }
 
 }

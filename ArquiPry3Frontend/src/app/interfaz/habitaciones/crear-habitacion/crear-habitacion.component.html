@@ -5,9 +5,9 @@
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Hotel</mat-label>
-      <input type="text" matInput [formControl]="hotel" placeholder="Ex. Hotel" [errorStateMatcher]="matcher">
+      <input type="text" matInput [formControl]="hotel2" placeholder="Ex. Hotel" [errorStateMatcher]="matcher">
       <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-      <mat-error *ngIf="hotel.hasError('maxlength') || hotel.hasError('minlength')">
+      <mat-error *ngIf="hotel2.hasError('maxlength') || hotel2.hasError('minlength')">
         Exedio el tamaño <strong>Permitido</strong>
       </mat-error>
     </mat-form-field>
@@ -23,19 +23,19 @@
       <!-- Position Column -->
       <ng-container matColumnDef="cedula">
         <th mat-header-cell *matHeaderCellDef> Cédula Jurídica </th>
-        <td mat-cell *matCellDef="let element"> {{element.cedulaJuridica}} </td>
+        <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idHotel)"> {{element.cedulaJuridica}} </td>
       </ng-container>
     
       <!-- Name Column -->
       <ng-container matColumnDef="nombre">
         <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idHotel)"> {{element.nombre}} </td>
       </ng-container>
     
       <!-- Weight Column -->
       <ng-container matColumnDef="telefono">
         <th mat-header-cell *matHeaderCellDef> Contacto </th>
-        <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+        <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idHotel)"> {{element.telefono}} </td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -43,6 +43,21 @@
     </table>
 </div>
 <div class="mainContainer">
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Hotel</mat-label>
+      <input type="text" matInput [formControl]="hotel" placeholder="Ex. 0" [errorStateMatcher]="matcher">
+      <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+      <mat-error *ngIf="hotel.hasError('maxlength') || hotel.hasError('minlength') || hotel.hasError('pattern')">
+        Ingrese un <strong>Número de habitación</strong> válida
+      </mat-error>
+      <mat-error *ngIf="hotel.hasError('required')">
+        Escoja el <strong>Hotel</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+
       <form class="example-form">
           <mat-form-field class="example-full-width">
             <mat-label>Número habitacion</mat-label>
@@ -60,7 +75,7 @@
         <form class="example-form">
           <mat-form-field class="example-full-width">
             <mat-label>Categoría</mat-label>
-            <input type="number" matInput [formControl]="categoria" placeholder="Ex. 88888888" [errorStateMatcher]="matcher">
+            <input type="text" matInput [formControl]="categoria" placeholder="Ex. 88888888" [errorStateMatcher]="matcher">
             <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
             <mat-error *ngIf="categoria.hasError('pattern')">
               Ingrese un <strong>Precio</strong> válido
@@ -86,10 +101,24 @@
           </form>
     
 
+          <form class="example-form">
             <mat-form-field class="example-full-width">
               <mat-label>Descripción</mat-label>
-              <textarea type="text" matInput placeholder="Ex. uuuuuuu"></textarea>
+              <textarea type="text" matInput [formControl]="descripcion" placeholder="Ex. XDDDDD" [errorStateMatcher]="matcher"></textarea>
+              <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+              <mat-error *ngIf="descripcion.hasError('maxlength') || descripcion.hasError('minlength')">
+                Ingrese una <strong>Descripción</strong> valida
+              </mat-error>
+              <mat-error *ngIf="precio.hasError('required')">
+                Ingrese a  <strong>Descripcion</strong> de la habitación
+              </mat-error>
             </mat-form-field>
+          </form>
 
-          <button mat-flat-button color="primary">Aceptar</button>
+            <!-- <mat-form-field class="example-full-width">
+              <mat-label>Descripción</mat-label>
+              <textarea type="text" matInput placeholder="Ex. uuuuuuu"></textarea>
+            </mat-form-field> -->
+
+          <button mat-flat-button color="primary" (click)="crearHabitacion()">Aceptar</button>
     </div>
