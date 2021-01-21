@@ -42,7 +42,7 @@ export class HabitacionesComponent implements OnInit {
 
   dialogAgregarHotel() {
     const dialogRef = this.dialog.open(CrearHabitacionComponent, {
-      width: '400px', height: '600px'
+      width: '700px', height: '600px'
     })
   }
 }

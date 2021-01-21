@@ -2,6 +2,11 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { HabitacionService } from '../../../logicaDeNegocios/habitaciones/servicios/habitacionService';
+import { Habitacion } from '../../../logicaDeNegocios/habitaciones/habitacionesModel/habitacion';
+import { Hoteles, RedesSociales, Horario, Direccion, HotelesBasic } from '../../../logicaDeNegocios/hoteles/hotelesModel/hoteles';
+import { HotelesService } from '../../../logicaDeNegocios/hoteles/servicios/hotelesService';
+import { MatTableDataSource } from '@angular/material/table';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -42,13 +47,58 @@ export class CrearHabitacionComponent implements OnInit {
     Validators.minLength(2)
   ]);
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<CrearHabitacionComponent>) {
+  idHotel: number;
+
+  hotel = new FormControl('', [
+    Validators.maxLength(30),
+    Validators.minLength(0),
+  ]);
+
+  dataSource = new MatTableDataSource<HotelesBasic>([]);
+  displayedColumns = ['cedula' ,'nombre', 'telefono'];
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<CrearHabitacionComponent>, private servicios: HabitacionService, private servicios2: HotelesService) {
     this.numeroHabitacion.setValue(data);
     this.precio.setValue(data);
     this.descripcion.setValue(data);
-   }
+   };
 
   ngOnInit(): void {
+  }
+
+  crearHabitacion():void {
+    // if (this.validDatos()) {
+    //   this.servicios.crearHabitacion()
+    // }
+  }
+
+  crearMaqueta():Habitacion {
+    return {
+      numeroHabitacion: this.numeroHabitacion.value,
+      dsecripcion: this.descripcion.value,
+      precio: this.precio.value,
+      hotelId: 1
+    }
+  }
+
+  validDatos():boolean {
+    if(this.numeroHabitacion.valid && this.categoria.valid && this.precio.valid && this.descripcion.valid) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  verHoteles():void {
+    if (this.hotel.valid) {
+      var pex = '';
+      if (this.hotel.value != null) {
+        pex = this.hotel.value;
+      }
+      this.servicios2.getHotelesFiltro(pex).subscribe(res => {
+        this,this.dataSource.data = res;
+      })
+    }
   }
 
 }
