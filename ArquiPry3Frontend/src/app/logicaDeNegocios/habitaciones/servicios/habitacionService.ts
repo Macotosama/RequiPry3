@@ -15,7 +15,8 @@ const httpOption = {
 
   export class HabitacionService {
     private port = 'http://localhost:9000/';
-    private crearHabi = 'habitaciones/crear'
+    private crearHabi = 'habitaciones/crear';
+    private verHabi = 'habitaciones/ver';
 
     constructor(
         private _http: HttpClient
@@ -23,5 +24,12 @@ const httpOption = {
 
     crearHabitacion(dato: Habitacion):Observable<any> {
         return this._http.post(`${this.port}${this.crearHabi}`,dato, httpOption);
+    }
+
+    verHabitaciones(dato: number):Observable<any> {
+      var xd = {
+        idHotel: dato,
+      }
+      return this._http.post(`${this.port}${this.verHabi}`,xd, httpOption);
     }
   }

@@ -66,10 +66,39 @@
     height: 90%;
 }
 
+.tabla2 {
+  height: 90%;
+}
+
 .tablaBotones {
     width: 6em;
 }
 
 .XD {
   width: 100em;
+}
+
+.titulo {
+  width: 100%;
+  height: 10%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+.tableContainer2 {
+  width: 100em;
+  height: 25em;
+  background-color: #BC88F8;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  border-radius: 30px;
+  margin: 16px;
+  padding: 16px;
+}
+
+.filtro {
+  margin-top: 3em;
+  width: 100%;
 }

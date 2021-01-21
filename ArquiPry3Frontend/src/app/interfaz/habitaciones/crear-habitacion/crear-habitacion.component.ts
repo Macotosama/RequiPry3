@@ -77,7 +77,8 @@ export class CrearHabitacionComponent implements OnInit {
   crearHabitacion():void {
     if (this.validDatos()) {
       this.servicios.crearHabitacion(this.crearMaqueta()).subscribe(res => {
-        this.openSnackBar('Se creo correctamente la habitación')
+        this.openSnackBar('Se creo correctamente la habitación');
+        this.dialogRef.close();
       })
     } else {
       this.openSnackBar('Ingrese todos los datos correctamente')
