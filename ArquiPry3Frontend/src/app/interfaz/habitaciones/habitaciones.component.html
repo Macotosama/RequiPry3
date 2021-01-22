@@ -19,86 +19,88 @@
         <span class="titulo">Caribbean Adventure</span>
       </mat-toolbar>
       <!-- Add Content Here -->
-      <div class="titulo">
-        <span>Crear habitación</span>
-      </div>
-      <div class="filtro">
-        <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <mat-label>Hotel</mat-label>
-            <input type="text" matInput [formControl]="hotel2" placeholder="Ex. Hotel" [errorStateMatcher]="matcher">
-            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-            <mat-error *ngIf="hotel2.hasError('maxlength') || hotel2.hasError('minlength')">
-              Exedio el tamaño <strong>Permitido</strong>
-            </mat-error>
-          </mat-form-field>
-        </form>
-        <button mat-flat-button color="primary" class="tablaBotones2" (click)="verHoteles()"><mat-icon>search</mat-icon></button>
-      </div>
-      <div class="tableContainer2">
-        <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8 tabla">
-      
-            <!--- Note that these columns can be defined in any order.
-                  The actual rendered columns are set as a property on the row definition" -->
-          
-            <!-- Position Column -->
-            <ng-container matColumnDef="cedula">
-              <th mat-header-cell *matHeaderCellDef> Cédula Jurídica </th>
-              <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idHotel)"> {{element.cedulaJuridica}} </td>
-            </ng-container>
-          
-            <!-- Name Column -->
-            <ng-container matColumnDef="nombre">
-              <th mat-header-cell *matHeaderCellDef> Nombre </th>
-              <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idHotel)"> {{element.nombre}} </td>
-            </ng-container>
-          
-            <!-- Weight Column -->
-            <ng-container matColumnDef="telefono">
-              <th mat-header-cell *matHeaderCellDef> Contacto </th>
-              <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idHotel)"> {{element.telefono}} </td>
-            </ng-container>
-          
-            <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
-          </table>
-      </div>
-      <div class="tableContainer">
-            <div class="tableContainer">
-                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 tabla">
 
-                    <!--- Note that these columns can be defined in any order.
-                          The actual rendered columns are set as a property on the row definition" -->
-                  
-                    <!-- Position Column -->
-                    <ng-container matColumnDef="cedula">
-                      <th mat-header-cell *matHeaderCellDef> Número de habitación </th>
-                      <td mat-cell *matCellDef="let element"> {{element}} </td>
-                    </ng-container>
-                  
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="nombre">
-                      <th mat-header-cell *matHeaderCellDef> Categoría </th>
-                      <td mat-cell *matCellDef="let element"> {{element}} </td>
-                    </ng-container>
-                  
-                    <!-- Weight Column -->
-                    <ng-container matColumnDef="telefono">
-                      <th mat-header-cell *matHeaderCellDef> Precio </th>
-                      <td mat-cell *matCellDef="let element"> {{element}} </td>
-                    </ng-container>
-                  
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="accion">
-                      <th mat-header-cell *matHeaderCellDef> Acción </th>
-                      <td mat-cell *matCellDef="let element"> <button mat-flat-button color="primary" class="tablaBotones" (click)="dialogVerInfo(element)">Ver más</button>|
-                        <button mat-flat-button color="primary" class="tablaBotones" (click)="dialogEditarInfo(element)">Editar</button> </td>
-                    </ng-container>
-                  
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                  </table>
-            </div>
+      <div class="ssss">
+        <div class="tituloXD">
+          <span>Crear habitación</span>
         </div>
+        <div class="filtro">
+          <form class="example-form">
+            <mat-form-field class="FullXD">
+              <mat-label>Hotel</mat-label>
+              <input type="text" matInput [formControl]="hotel2" placeholder="Ex. Hotel" [errorStateMatcher]="matcher">
+              <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+              <mat-error *ngIf="hotel2.hasError('maxlength') || hotel2.hasError('minlength')">
+                Exedio el tamaño <strong>Permitido</strong>
+              </mat-error>
+            </mat-form-field>
+          </form>
+          <button mat-flat-button color="primary" class="tablaBotones2" (click)="verHoteles()"><mat-icon>search</mat-icon></button>
+        </div>
+        <div class="tableContainer2">
+          <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8 tabla">
+        
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            
+              <!-- Position Column -->
+              <ng-container matColumnDef="cedula">
+                <th mat-header-cell *matHeaderCellDef> Cédula Jurídica </th>
+                <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idHotel)"> {{element.cedulaJuridica}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idHotel)"> {{element.nombre}} </td>
+              </ng-container>
+            
+              <!-- Weight Column -->
+              <ng-container matColumnDef="telefono">
+                <th mat-header-cell *matHeaderCellDef> Contacto </th>
+                <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idHotel)"> {{element.telefono}} </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+            </table>
+        </div>
+        <div class="tableContainer">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 tabla2">
+
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            
+              <!-- Position Column -->
+              <ng-container matColumnDef="cedula">
+                <th mat-header-cell *matHeaderCellDef> Número de habitación </th>
+                <td mat-cell *matCellDef="let element"> {{element.numeroHabitacion}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef> Categoría </th>
+                <td mat-cell *matCellDef="let element"> f </td>
+              </ng-container>
+            
+              <!-- Weight Column -->
+              <ng-container matColumnDef="telefono">
+                <th mat-header-cell *matHeaderCellDef> Precio </th>
+                <td mat-cell *matCellDef="let element"> {{element.precio}} </td>
+              </ng-container>
+            
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="accion">
+                <th mat-header-cell *matHeaderCellDef> Acción </th>
+                <td mat-cell *matCellDef="let element"> <button mat-flat-button color="primary" class="tablaBotones" (click)="dialogVerInfo(element)">Ver más</button>|
+                  <button mat-flat-button color="primary" class="tablaBotones" (click)="dialogEditarInfo(element)">Editar</button> </td>
+              </ng-container>
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+      </div>
+
     </mat-sidenav-content>
   </mat-sidenav-container>

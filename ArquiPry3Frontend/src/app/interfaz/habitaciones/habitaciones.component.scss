@@ -36,9 +36,6 @@
 
   //------------------------------------------------------------------
   
-.titulos {
-  font-size: 4em;
-}
 
 .mainContainer {
     position: absolute;
@@ -61,15 +58,6 @@
     margin: 16px;
     padding: 16px;
 }
-
-.tabla {
-    height: 90%;
-}
-
-.tabla2 {
-  height: 90%;
-}
-
 .tablaBotones {
     width: 6em;
 }
@@ -78,13 +66,19 @@
   width: 100em;
 }
 
-.titulo {
+.FullXD {
   width: 100%;
+}
+
+.tituloXD {
+  // width: 100%;
+  margin-top: 1em;
   height: 10%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   align-items: center;
   justify-items: center;
+  font-size: 4em;
 }
 
 .tableContainer2 {
@@ -100,5 +94,13 @@
 
 .filtro {
   margin-top: 3em;
+  width: 80%;
+}
+
+.ssss {
   width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  align-items: center;
+  justify-items: center;
 }

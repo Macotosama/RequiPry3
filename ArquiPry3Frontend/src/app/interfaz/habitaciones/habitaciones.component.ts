@@ -12,6 +12,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import { Hoteles, RedesSociales, Horario, Direccion, HotelesBasic } from '../../logicaDeNegocios/hoteles/hotelesModel/hoteles';
 import { HotelesService } from '../../logicaDeNegocios/hoteles/servicios/hotelesService';
 import { MatTableDataSource } from '@angular/material/table';
+import { HabitacionService } from '../../logicaDeNegocios/habitaciones/servicios/habitacionService';
+import { Habitacion } from '../../logicaDeNegocios/habitaciones/habitacionesModel/habitacion';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -54,7 +56,7 @@ export class HabitacionesComponent implements OnInit {
   );
 
   hoteles: string[];
-  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog, private _snackBar: MatSnackBar, private servicios2: HotelesService) { }
+  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog, private _snackBar: MatSnackBar, private servicios2: HotelesService, private servicio: HabitacionService) { }
 
   ngOnInit(): void {
   }
@@ -83,15 +85,17 @@ export class HabitacionesComponent implements OnInit {
         pex = this.hotel2.value;
       }
       this.servicios2.getHotelesFiltro(pex).subscribe(res => {
-        this.dataSource.data = res;
+        this.dataSource2.data = res;
       })
     }
   }
 
   
   clickHotel(nombre: string, id: number):void {
-    this.hotel.setValue(nombre);
     this.idHotel = id;
+    this.servicio.verHabitaciones(id).subscribe(res => {
+      this.dataSource.data = res
+    })
   }
 
   openSnackBar(message: string) {
