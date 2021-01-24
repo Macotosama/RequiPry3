@@ -17,6 +17,7 @@ const httpOption = {
     private port = 'http://localhost:9000/';
     private crearHabi = 'habitaciones/crear';
     private verHabi = 'habitaciones/ver';
+    private actiHabi = 'habitaciones/actualizar';
 
     constructor(
         private _http: HttpClient
@@ -31,5 +32,9 @@ const httpOption = {
         idHotel: dato,
       }
       return this._http.post(`${this.port}${this.verHabi}`,xd, httpOption);
+    }
+
+    actualizar(data: any):Observable<any> {
+      return this._http.put(`${this.port}${this.actiHabi}`, data, httpOption);
     }
   }

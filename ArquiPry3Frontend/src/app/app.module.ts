@@ -39,6 +39,14 @@ import { ReservacionComponent } from './interfaz/reservacion/reservacion.compone
 import { VerinforeservacionComponent } from './interfaz/reservacion/verinforeservacion/verinforeservacion.component';
 import { ClientesComponent } from './interfaz/clientes/clientes.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { TransporteComponent } from './interfaz/transporte/transporte.component';
+import { ActividadesComponent } from './interfaz/actividades/actividades.component';
+import { InfoActividadComponent } from './interfaz/actividades/info-actividad/info-actividad.component';
+import { CrearActividadComponent } from './interfaz/actividades/crear-actividad/crear-actividad.component';
+import { CrearTansporteComponent } from './interfaz/transporte/crear-tansporte/crear-tansporte.component';
+import { InfoTransporteComponent } from './interfaz/transporte/info-transporte/info-transporte.component';
+import { ActualizarTransporteComponent } from './interfaz/transporte/actualizar-transporte/actualizar-transporte.component';
+import { ActualizarComponent } from './interfaz/actividades/actualizar/actualizar.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +69,14 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ReservacionComponent,
     VerinforeservacionComponent,
     ClientesComponent,
+    TransporteComponent,
+    ActividadesComponent,
+    InfoActividadComponent,
+    CrearActividadComponent,
+    CrearTansporteComponent,
+    InfoTransporteComponent,
+    ActualizarTransporteComponent,
+    ActualizarComponent,
     ],
   imports: [
     BrowserModule,

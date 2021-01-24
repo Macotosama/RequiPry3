@@ -1,5 +1,9 @@
+<div class="titulo">
+  <span class="XDDDDD">Editar habitación</span>
+</div>
+
 <div class="mainContainer">
-    <span>Editar habitación</span>
+
       <form class="example-form">
           <mat-form-field class="example-full-width">
             <mat-label>Número habitacion</mat-label>
@@ -14,20 +18,25 @@
           </mat-form-field>
         </form>
   
-        <mat-form-field appearance="fill" class="example-form">
-            <mat-label>Favorite food</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let food of foods" [value]="food">
-                {{food}}
-              </mat-option>
-            </mat-select>
-        </mat-form-field>
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Categoría</mat-label>
+            <input type="text" matInput [formControl]="categoria" placeholder="Ex. 88888888" [errorStateMatcher]="matcher">
+            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+            <mat-error *ngIf="categoria.hasError('pattern')">
+              Ingrese la <strong>Categoría</strong> válido
+            </mat-error>
+            <mat-error *ngIf="categoria.hasError('required')">
+              Ingrese la  <strong>Categoría</strong> de la habitación
+            </mat-error>
+          </mat-form-field>
+        </form>
   
         <form class="example-form">
             <mat-form-field class="example-full-width">
               <mat-label>Precio</mat-label>
               <input type="number" matInput [formControl]="precio" placeholder="Ex. 88888888" [errorStateMatcher]="matcher">
-              <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+              <span matPrefix>¢</span>
               <mat-error *ngIf="precio.hasError('pattern')">
                 Ingrese un <strong>Precio</strong> válido
               </mat-error>
@@ -38,10 +47,39 @@
           </form>
     
 
+          <form class="example-form">
             <mat-form-field class="example-full-width">
               <mat-label>Descripción</mat-label>
-              <textarea type="text" matInput placeholder="Ex. uuuuuuu"></textarea>
+              <textarea type="text" matInput [formControl]="descripcion" placeholder="Ex. XDDDDD" [errorStateMatcher]="matcher"></textarea>
+              <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+              <mat-error *ngIf="descripcion.hasError('maxlength') || descripcion.hasError('minlength')">
+                Ingrese una <strong>Descripción</strong> valida
+              </mat-error>
+              <mat-error *ngIf="precio.hasError('required')">
+                Ingrese a  <strong>Descripcion</strong> de la habitación
+              </mat-error>
             </mat-form-field>
+          </form>
 
-          <button mat-flat-button color="primary">Aceptar</button>
+          
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Imagen</mat-label>
+              <input type="text" matInput [formControl]="imagen" placeholder="Ex. XDDDDD" [errorStateMatcher]="matcher">
+              <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+              <mat-error *ngIf="imagen.hasError('maxlength') || imagen.hasError('minlength')">
+                Ingrese una <strong>Descripción</strong> valida
+              </mat-error>
+              <mat-error *ngIf="imagen.hasError('required')">
+                Ingrese a  <strong>Descripcion</strong> de la habitación
+              </mat-error>
+            </mat-form-field>
+          </form>
+
+            <!-- <mat-form-field class="example-full-width">
+              <mat-label>Descripción</mat-label>
+              <textarea type="text" matInput placeholder="Ex. uuuuuuu"></textarea>
+            </mat-form-field> -->
+
+          <button mat-flat-button color="primary" (click)="crearHabitacion()">Aceptar</button>
     </div>

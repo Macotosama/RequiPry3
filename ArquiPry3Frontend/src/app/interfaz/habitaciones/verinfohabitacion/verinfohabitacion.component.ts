@@ -11,6 +11,7 @@ export class VerinfohabitacionComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<VerinfohabitacionComponent>) { }
 
   ngOnInit(): void {
+    console.log(this.data)
   }
 
   cancelar():void {

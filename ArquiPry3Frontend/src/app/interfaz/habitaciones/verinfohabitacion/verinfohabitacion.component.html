@@ -1,7 +1,7 @@
 <div class="mainContainer">
     <div class="conte">
         <strong>Número habitación</strong>
-        {{data}}
+        {{data.numeroHabitacion}}
     </div>
     <div class="conte">
         <strong>Categoría</strong>
@@ -9,11 +9,15 @@
     </div>
     <div class="conte">
         <div><strong>Precio</strong></div>
-        <div>{{data}}</div>
+        <div>{{data.precio}}</div>
     </div>
     <div class="conte">
         <strong>Descripción</strong>
-        <p>{{data}}</p>
+        <p>{{data.descripcion}}</p>
+    </div>
+    <div class="conte">
+        <strong>Imagen</strong>
+        <p>{{data.multimedia}}</p>
     </div>
     <button mat-flat-button color="primary" class="tablaBotones" (click)="cancelar()">Cerrar</button>
 </div>

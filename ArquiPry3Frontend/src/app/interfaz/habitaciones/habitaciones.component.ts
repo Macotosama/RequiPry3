@@ -63,13 +63,13 @@ export class HabitacionesComponent implements OnInit {
 
   dialogVerInfo(item: number) {
     const dialogRef = this.dialog.open(VerinfohabitacionComponent , {
-      width: '400px', height: '400px', data: item
+      width: '400px', height: '250px', data: item
     })
   }
 
   dialogEditarInfo(item: number) {
     const dialogRef = this.dialog.open(EditarInfoHabitacionComponent, {
-      width: '400px', height: '600px', data: item
+      width: '700px', height: '600px', data: item
     })
   }
 
@@ -94,6 +94,7 @@ export class HabitacionesComponent implements OnInit {
   clickHotel(nombre: string, id: number):void {
     this.idHotel = id;
     this.servicio.verHabitaciones(id).subscribe(res => {
+      console.log(res)
       this.dataSource.data = res
     })
   }
