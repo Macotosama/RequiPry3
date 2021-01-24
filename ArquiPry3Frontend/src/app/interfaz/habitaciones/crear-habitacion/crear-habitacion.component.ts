@@ -56,6 +56,13 @@ export class CrearHabitacionComponent implements OnInit {
     Validators.required,
   ]);
 
+  imagen = new FormControl('', [
+    Validators.maxLength(30),
+    Validators.minLength(1),
+    Validators.required,
+  ]);
+
+
   hotel2 = new FormControl('', [
     Validators.maxLength(30),
     Validators.minLength(0),
@@ -90,12 +97,13 @@ export class CrearHabitacionComponent implements OnInit {
       numeroHabitacion: this.numeroHabitacion.value,
       dsecripcion: this.descripcion.value,
       precio: this.precio.value,
-      idHotel: this.idHotel
+      idHotel: this.idHotel,
+      multimedia: this.imagen.value
     }
   }
 
   validDatos():boolean {
-    if(this.numeroHabitacion.valid && this.categoria.valid && this.precio.valid && this.descripcion.valid && this.hotel.valid) {
+    if(this.numeroHabitacion.valid && this.categoria.valid && this.precio.valid && this.descripcion.valid && this.hotel.valid && this.imagen.valid) {
       return true;
     } else {
       return false;

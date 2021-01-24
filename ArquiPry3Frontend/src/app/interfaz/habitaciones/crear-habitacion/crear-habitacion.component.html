@@ -1,5 +1,5 @@
 <div class="titulo">
-  <span>Crear habitación</span>
+  <span class="XDDDDD">Crear habitación</span>
 </div>
 <div class="filtro">
   <form class="example-form">
@@ -78,10 +78,10 @@
             <input type="text" matInput [formControl]="categoria" placeholder="Ex. 88888888" [errorStateMatcher]="matcher">
             <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
             <mat-error *ngIf="categoria.hasError('pattern')">
-              Ingrese un <strong>Precio</strong> válido
+              Ingrese la <strong>Categoría</strong> válido
             </mat-error>
             <mat-error *ngIf="categoria.hasError('required')">
-              Ingrese el  <strong>Precio</strong> de la habitación
+              Ingrese la  <strong>Categoría</strong> de la habitación
             </mat-error>
           </mat-form-field>
         </form>
@@ -90,7 +90,7 @@
             <mat-form-field class="example-full-width">
               <mat-label>Precio</mat-label>
               <input type="number" matInput [formControl]="precio" placeholder="Ex. 88888888" [errorStateMatcher]="matcher">
-              <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+              <span matPrefix>¢</span>
               <mat-error *ngIf="precio.hasError('pattern')">
                 Ingrese un <strong>Precio</strong> válido
               </mat-error>
@@ -110,6 +110,21 @@
                 Ingrese una <strong>Descripción</strong> valida
               </mat-error>
               <mat-error *ngIf="precio.hasError('required')">
+                Ingrese a  <strong>Descripcion</strong> de la habitación
+              </mat-error>
+            </mat-form-field>
+          </form>
+
+          
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Imagen</mat-label>
+              <input type="text" matInput [formControl]="imagen" placeholder="Ex. XDDDDD" [errorStateMatcher]="matcher">
+              <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+              <mat-error *ngIf="imagen.hasError('maxlength') || imagen.hasError('minlength')">
+                Ingrese una <strong>Descripción</strong> valida
+              </mat-error>
+              <mat-error *ngIf="imagen.hasError('required')">
                 Ingrese a  <strong>Descripcion</strong> de la habitación
               </mat-error>
             </mat-form-field>
