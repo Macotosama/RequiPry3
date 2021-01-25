@@ -72,7 +72,7 @@ export class CrearTansporteComponent implements OnInit {
       apellido1: this.apellido1.value,
       apellido2: this.apellido2.value,
       placa: this.placa.value,
-      telefono: this.placa.value
+      telefono: this.telefono.value
     }
   }
 

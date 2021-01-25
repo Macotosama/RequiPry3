@@ -215,12 +215,14 @@ export class EditarInfoHotelComponent implements OnInit {
 
   datosHotel2():void {
     this.servicio.getIdioma(this.data).subscribe(res2 => {
+      console.log(res2)
       this.idioma.data = res2;
     })
   }
 
   datosHotel3():void {
     this.servicio.getRede(this.data).subscribe(res3 => {
+      console.log
       this.redesSociles.data = res3;
     })
   }

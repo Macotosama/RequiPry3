@@ -1,1 +1,23 @@
-<p>info-transporte works!</p>
+<div class="mainContainer">
+    <div class="conte">
+        <strong>Nombre</strong>
+        {{data.nombre}}
+    </div>
+    <div class="conte">
+        <strong>Apellido 1</strong>
+        {{data.apellido1}}
+    </div>
+    <div class="conte">
+        <strong>Apellido 2</strong>
+        {{data.apellido2}}
+    </div>
+    <div class="conte">
+        <div><strong>Teléfono</strong></div>
+        <div>{{data.telefono}}</div>
+    </div>
+    <div class="conte">
+        <strong>Placa</strong>
+        {{data.placa}}
+    </div>
+    <button mat-flat-button color="primary" class="tablaBotones" (click)="cancelar()">Cerrar</button>
+</div>

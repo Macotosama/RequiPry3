@@ -10,6 +10,8 @@ import { HotelesService } from '../../logicaDeNegocios/hoteles/servicios/hoteles
 import { MatTableDataSource } from '@angular/material/table';
 import { CrearTansporteComponent } from './crear-tansporte/crear-tansporte.component';
 import { TransporteService } from '../../logicaDeNegocios/transporte/TransporteService';
+import { InfoTransporteComponent } from './info-transporte/info-transporte.component';
+import { ActualizarTransporteComponent } from './actualizar-transporte/actualizar-transporte.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -52,27 +54,27 @@ export class TransporteComponent implements OnInit {
         pex = this.hotel.value;
       }
       this.servicio.VerTransporte(pex).subscribe(res => {
-        // this.dataSource.data = res;
+        this.dataSource.data = res;
         console.log(res)
       })
     }
   }
 
-  dialogVerInfo(item: number) {
-    // const dialogRef = this.dialog.open(VerinfohotelComponent, {
-    //   width: '1000px', height: '700px', data: item
-    // })
+  dialogVerInfo(item: any) {
+    const dialogRef = this.dialog.open(InfoTransporteComponent, {
+      width: '1000px', height: '250px', data: item
+    })
   }
 
-  dialogEditarInfo(item: number) {
-    // const dialogRef = this.dialog.open(EditarInfoHotelComponent, {
-    //   width: '1300px', height: '800px', data: item
-    // })
+  dialogEditarInfo(item: any) {
+    const dialogRef = this.dialog.open(ActualizarTransporteComponent, {
+      width: '1300px', height: '300px', data: item
+    })
   }
 
   dialogAgregarHotel() {
     const dialogRef = this.dialog.open(CrearTansporteComponent, {
-      width: '1300px', height: '800px'
+      width: '1300px', height: '300px'
     })
   }
 }

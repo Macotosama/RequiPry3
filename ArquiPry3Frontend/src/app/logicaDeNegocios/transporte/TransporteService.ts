@@ -17,6 +17,7 @@ const httpOption = {
 
     private crear = 'conductores/crear';
     private verTele = 'conductores/ver';
+    private actualizar = 'conductores/actualizar';
 
     constructor(
         private _http: HttpClient
@@ -32,5 +33,9 @@ const httpOption = {
         }
         console.log('paso por aqui', xd)
         return this._http.post(`${this.port}${this.verTele}`,xd,httpOption);
+    }
+
+    editar(dato: any):Observable<any> {
+      return this._http.put(`${this.port}${this.actualizar}`, dato, httpOption);
     }
   }

@@ -1,0 +1,29 @@
+.mainContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3em;
+    align-items: center;
+    justify-items: center;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  .example-full-width {
+      width: 20em;
+  }
+
+  span {
+      font-size: 3em;
+  }
+
+  .titulo {
+    width: 100%;
+    height: 10%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    justify-items: center;
+}
