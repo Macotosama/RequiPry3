@@ -3,5 +3,6 @@ export interface Habitacion {
   dsecripcion: string,
   precio: number,
   idHotel: number,
-  multimedia: string
+  multimedia: string,
+  categoria: string
 }

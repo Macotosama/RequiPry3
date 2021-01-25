@@ -14,6 +14,7 @@ import { AventurasService } from '../../logicaDeNegocios/aventuras/servicios/ave
 import { CrearActividadComponent } from './crear-actividad/crear-actividad.component';
 import { ActividadesService } from '../../logicaDeNegocios/actividades/actividadesService';
 import { InfoActividadComponent } from './info-actividad/info-actividad.component';
+import { ActualizarComponent } from './actualizar/actualizar.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -64,14 +65,14 @@ export class ActividadesComponent implements OnInit {
 
   dialogVerInfo(item: number) {
     const dialogRef = this.dialog.open(InfoActividadComponent , {
-      width: '400px', height: '250px', data: item
+      width: '400px', height: '300px', data: item
     })
   }
 
   dialogEditarInfo(item: number) {
-    // const dialogRef = this.dialog.open(EditarInfoHabitacionComponent, {
-    //   width: '700px', height: '600px', data: item
-    // })
+    const dialogRef = this.dialog.open(ActualizarComponent, {
+      width: '700px', height: '500px', data: item
+    })
   }
 
   dialogAgregarHotel() {

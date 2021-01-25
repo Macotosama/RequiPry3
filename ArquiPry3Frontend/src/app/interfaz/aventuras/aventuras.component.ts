@@ -47,13 +47,13 @@ export class AventurasComponent implements OnInit {
 
   dialogVerInfo(item: number) {
     const dialogRef = this.dialog.open(VerinfoaventuraComponent, {
-      width: '400px', height: '250px', data: item
+      width: '400px', height: '360px', data: item
     })
   }
 
   dialogEditarInfo(item: number) {
     const dialogRef = this.dialog.open(EditarInfoAventuraComponent, {
-      width: '400px', height: '600px', data: item
+      width: '1300px', height: '400px', data: item
     })
   }
 

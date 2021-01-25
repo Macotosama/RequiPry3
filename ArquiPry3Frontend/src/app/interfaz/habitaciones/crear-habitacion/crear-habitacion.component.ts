@@ -98,7 +98,8 @@ export class CrearHabitacionComponent implements OnInit {
       dsecripcion: this.descripcion.value,
       precio: this.precio.value,
       idHotel: this.idHotel,
-      multimedia: this.imagen.value
+      multimedia: this.imagen.value,
+      categoria: this.categoria.value
     }
   }
 

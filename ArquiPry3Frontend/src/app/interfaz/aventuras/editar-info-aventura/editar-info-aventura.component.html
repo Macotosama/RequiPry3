@@ -1,70 +1,147 @@
+<div class="titulo">
+  <span>Crear Compañia Aventura</span>
+</div>
 <div class="mainContainer">
-    <span>Editar hotel</span>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Cédula Júridica</mat-label>
+          <input type="number" matInput [formControl]="cedula" placeholder="Ex. 9999999999" [errorStateMatcher]="matcher">
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="cedula.hasError('maxlength') || cedula.hasError('minlength') || cedula.hasError('pattern')">
+            Ingrese una <strong>Cédula Júridica</strong> válida
+          </mat-error>
+          <mat-error *ngIf="cedula.hasError('required')">
+            Ingrese la <strong>Cédula Júridica</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+
       <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <mat-label>Cédula Júridica</mat-label>
-            <input type="number" matInput [formControl]="cedula" placeholder="Ex. 9999999999" [errorStateMatcher]="matcher">
-            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-            <mat-error *ngIf="cedula.hasError('maxlength') || cedula.hasError('minlength') || cedula.hasError('pattern')">
-              Ingrese una <strong>Cédula Júridica</strong> válida
-            </mat-error>
-            <mat-error *ngIf="cedula.hasError('required')">
-              Ingrese la <strong>Cédula Júridica</strong>
-            </mat-error>
-          </mat-form-field>
-        </form>
-  
-        <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <mat-label>Nombre</mat-label>
-            <input type="text" matInput [formControl]="nombre" placeholder="Ex. Name" [errorStateMatcher]="matcher">
-            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-            <mat-error *ngIf="nombre.hasError('pattern')">
-              Ingrese un <strong>Nombre</strong> válido
-            </mat-error>
-            <mat-error *ngIf="nombre.hasError('maxlength')">
-              Exedio el tamaño <strong>máximo</strong> par el nombre
-            </mat-error>
-            <mat-error *ngIf="nombre.hasError('required')">
-              Ingrese el <strong>Nombre</strong> del hotel
-            </mat-error>
-          </mat-form-field>
-        </form>
-  
-        <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <mat-label>Teléfono</mat-label>
-            <input type="number" matInput [formControl]="telefono" placeholder="Ex. 88888888" [errorStateMatcher]="matcher">
-            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-            <mat-error *ngIf="telefono.hasError('maxlength') || telefono.hasError('minlength') || telefono.hasError('pattern')">
-              Ingrese un n° de <strong>Teléfono</strong> válido
-            </mat-error>
-            <mat-error *ngIf="telefono.hasError('required')">
-              Ingrese el n° de <strong>Teléfono</strong> del hotel
-            </mat-error>
-          </mat-form-field>
-        </form>
-  
-        <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <mat-label>Coreo Eletrónico</mat-label>
-            <input type="email" matInput [formControl]="correoElectronico" placeholder="Ex. abc@cba.com" [errorStateMatcher]="matcher">
-            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
-            <mat-error *ngIf="correoElectronico.hasError('email')">
-              Ingrese un <strong>Coreo Eletrónico</strong> válido
-            </mat-error>
-            <mat-error *ngIf="correoElectronico.hasError('minlength')">
-              No cumple con el tamaño <strong>mínimo</strong> para el Coreo Eletrónico
-            </mat-error>
-            <mat-error *ngIf="correoElectronico.hasError('maxlength')">
-              Exedio el tamaño <strong>máximo</strong> para el Coreo Eletrónico
-            </mat-error>
-            <mat-error *ngIf="correoElectronico.hasError('required')">
-              Ingrese el <strong>Coreo Eletrónico</strong> del hotel
-            </mat-error>
-          </mat-form-field>
-        </form>
-  
-        <button mat-flat-button color="primary">Aceptar</button>
-  
-  </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input type="text" matInput [formControl]="nombre" placeholder="Ex. Name" [errorStateMatcher]="matcher">
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="nombre.hasError('pattern')">
+            Ingrese un <strong>Nombre</strong> válido
+          </mat-error>
+          <mat-error *ngIf="nombre.hasError('maxlength')">
+            Exedio el tamaño <strong>máximo</strong> par el nombre
+          </mat-error>
+          <mat-error *ngIf="nombre.hasError('required')">
+            Ingrese el <strong>Nombre</strong> del hotel
+          </mat-error>
+        </mat-form-field>
+      </form>
+
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Teléfono</mat-label>
+          <input type="number" matInput [formControl]="telefono" placeholder="Ex. 88888888" [errorStateMatcher]="matcher">
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="telefono.hasError('maxlength') || telefono.hasError('minlength') || telefono.hasError('pattern')">
+            Ingrese un n° de <strong>Teléfono</strong> válido
+          </mat-error>
+          <mat-error *ngIf="telefono.hasError('required')">
+            Ingrese el n° de <strong>Teléfono</strong> del hotel
+          </mat-error>
+        </mat-form-field>
+      </form>
+
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Coreo Eletrónico</mat-label>
+          <input type="email" matInput [formControl]="correoElectronico" placeholder="Ex. abc@cba.com" [errorStateMatcher]="matcher">
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="correoElectronico.hasError('email')">
+            Ingrese un <strong>Coreo Eletrónico</strong> válido
+          </mat-error>
+          <mat-error *ngIf="correoElectronico.hasError('minlength')">
+            No cumple con el tamaño <strong>mínimo</strong> para el Coreo Eletrónico
+          </mat-error>
+          <mat-error *ngIf="correoElectronico.hasError('maxlength')">
+            Exedio el tamaño <strong>máximo</strong> para el Coreo Eletrónico
+          </mat-error>
+          <mat-error *ngIf="correoElectronico.hasError('required')">
+            Ingrese el <strong>Coreo Eletrónico</strong> del hotel
+          </mat-error>
+        </mat-form-field>
+      </form>
+
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>GPS</mat-label>
+          <input type="text" matInput [formControl]="gps" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="gps.hasError('minlength')">
+            No cumple con el tamaño <strong>mínimo</strong> para el Coreo Eletrónico
+          </mat-error>
+          <mat-error *ngIf="gps.hasError('maxlength')">
+            Exedio el tamaño <strong>máximo</strong> para el Coreo Eletrónico
+          </mat-error>
+          <mat-error *ngIf="gps.hasError('required')">
+            Ingrese el <strong>Coreo Eletrónico</strong> del hotel
+          </mat-error>
+        </mat-form-field>
+      </form>
+    
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Provincia</mat-label>
+          <input type="text" matInput [formControl]="provincia" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="provincia.hasError('minlength')">
+            No cumple con el tamaño <strong>mínimo</strong> para el Coreo Eletrónico
+          </mat-error>
+          <mat-error *ngIf="provincia.hasError('maxlength')">
+            Exedio el tamaño <strong>máximo</strong> para el Coreo Eletrónico
+          </mat-error>
+          <mat-error *ngIf="provincia.hasError('required')">
+            Ingrese el <strong>Coreo Eletrónico</strong> del hotel
+          </mat-error>
+        </mat-form-field>
+      </form>
+    
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Canton</mat-label>
+          <input type="text" matInput [formControl]="canton" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="canton.hasError('minlength') || canton.hasError('maxlength')">
+            No cumple con el tamaño <strong>Permitido</strong>
+          </mat-error>
+          <mat-error *ngIf="canton.hasError('required')">
+            Ingrese el <strong>Canton</strong> del hotel
+          </mat-error>
+        </mat-form-field>
+      </form>
+    
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Distrito</mat-label>
+          <input type="text" matInput [formControl]="distrito" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="distrito.hasError('minlength') || distrito.hasError('maxlength')">
+            No cumple con el tamaño <strong>Permitido</strong>
+          </mat-error>
+          <mat-error *ngIf="distrito.hasError('required')">
+            Ingrese el <strong>Distrito</strong> del hotel
+          </mat-error>
+        </mat-form-field>
+      </form>
+    
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Señas</mat-label>
+          <input type="text" matInput [formControl]="sennas" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="sennas.hasError('minlength') || sennas.hasError('maxlength')">
+            No cumple con el tamaño <strong>Permitido</strong>
+          </mat-error>
+          <mat-error *ngIf="sennas.hasError('required')">
+            Ingrese el <strong>Distrito</strong> del hotel
+          </mat-error>
+        </mat-form-field>
+      </form>
+
+      <button mat-flat-button color="primary" (click)="crearAventura()">Aceptar</button>
+</div>

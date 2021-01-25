@@ -1,1 +1,107 @@
-<p>actualizar works!</p>
+<div class="titulo">
+  <span class="XDDDDD">Crear habitación</span>
+</div>
+
+  <div class="mainContainer">
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input type="text" matInput [formControl]="nombre" placeholder="Ex. XD" [errorStateMatcher]="matcher">
+          <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+          <mat-error *ngIf="nombre.hasError('maxlength') || nombre.hasError('minlength') || nombre.hasError('pattern')">
+            Ingrese el <strong>Nombre</strong>
+          </mat-error>
+          <mat-error *ngIf="nombre.hasError('required')">
+            Ingrese el <strong>Nombre</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+  
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Riesgo</mat-label>
+              <input type="number" matInput [formControl]="riesgo" placeholder="Ex. 0" [errorStateMatcher]="matcher">
+              <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+              <mat-error *ngIf="riesgo.hasError('maxlength') || riesgo.hasError('minlength') || riesgo.hasError('pattern')">
+                Ingrese el <strong>Riesgo</strong>
+              </mat-error>
+              <mat-error *ngIf="riesgo.hasError('required')">
+                Ingrese el <strong>Riesgo</strong>
+              </mat-error>
+            </mat-form-field>
+          </form>
+    
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Edad mínima</mat-label>
+              <input type="number" matInput [formControl]="edadMin" placeholder="Ex. 88888888" [errorStateMatcher]="matcher">
+              <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+              <mat-error *ngIf="edadMin.hasError('maxlength') || edadMin.hasError('minlength')">
+                Ingrese la <strong>Edad mínima</strong> válida
+              </mat-error>
+              <mat-error *ngIf="edadMin.hasError('required')">
+                Ingrese la  <strong>Edad mínima</strong> de la actividad
+              </mat-error>
+            </mat-form-field>
+          </form>
+    
+          <form class="example-form">
+              <mat-form-field class="example-full-width">
+                <mat-label>Edad máxima</mat-label>
+                <input type="number" matInput [formControl]="edadMax" placeholder="Ex. 88888888" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="edadMax.hasError('maxlength') || edadMax.hasError('minlength')">
+                  Ingrese un <strong>Precio</strong> válido
+                </mat-error>
+                <mat-error *ngIf="edadMax.hasError('required')">
+                  Ingrese el  <strong>Precio</strong> de la habitación
+                </mat-error>
+              </mat-form-field>
+            </form>
+      
+  
+            <form class="example-form">
+              <mat-form-field class="example-full-width">
+                <mat-label>Descripción</mat-label>
+                <textarea type="text" matInput [formControl]="descripcion" placeholder="Ex. XDDDDD" [errorStateMatcher]="matcher"></textarea>
+                <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                <mat-error *ngIf="descripcion.hasError('maxlength') || descripcion.hasError('minlength')">
+                  Ingrese una <strong>Descripción</strong> valida
+                </mat-error>
+                <mat-error *ngIf="descripcion.hasError('required')">
+                  Ingrese a  <strong>Descripcion</strong> de la habitación
+                </mat-error>
+              </mat-form-field>
+            </form>
+  
+            
+            <form class="example-form">
+              <mat-form-field class="example-full-width">
+                <mat-label>Precio</mat-label>
+                <input type="number" matInput [formControl]="precio" placeholder="Ex. XDDDDD" [errorStateMatcher]="matcher">
+                <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                <span matPrefix>¢</span>
+                <mat-error *ngIf="precio.hasError('maxlength') || precio.hasError('minlength')">
+                  Ingrese el <strong>Precio</strong>
+                </mat-error>
+                <mat-error *ngIf="precio.hasError('required')">
+                  Ingrese el <strong>Precio</strong> de la habitación
+                </mat-error>
+              </mat-form-field>
+            </form>
+
+            <div>
+                <label id="ley">Ley 7600</label>
+                <mat-radio-group aria-label="Select an option" aria-labelledby="ley" [(ngModel)]="ley7600"><br>
+                  <mat-radio-button value="true">Sí</mat-radio-button>
+                  <mat-radio-button value="false">No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+  
+              <!-- <mat-form-field class="example-full-width">
+                <mat-label>Descripción</mat-label>
+                <textarea type="text" matInput placeholder="Ex. uuuuuuu"></textarea>
+              </mat-form-field> -->
+  
+            <button mat-flat-button color="primary" (click)="crearHabitacion()">Aceptar</button>
+      </div>

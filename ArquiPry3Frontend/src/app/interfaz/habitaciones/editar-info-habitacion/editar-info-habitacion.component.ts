@@ -76,7 +76,7 @@ export class EditarInfoHabitacionComponent implements OnInit {
     this.numeroHabitacion.setValue(data.numeroHabitacion);
     this.precio.setValue(data.precio);
     this.descripcion.setValue(data.descripcion);
-    this.categoria.setValue('XD');
+    this.categoria.setValue(data.categoria);
     this.imagen.setValue(data.multimedia);
    };
 
@@ -100,7 +100,8 @@ export class EditarInfoHabitacionComponent implements OnInit {
       dsecripcion: this.descripcion.value,
       precio: this.precio.value,
       idHabitacion: this.data.idHabitacion,
-      multimedia: this.imagen.value
+      multimedia: this.imagen.value,
+      categoria: this.categoria.value
     }
   }
 

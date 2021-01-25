@@ -1,1 +1,31 @@
-<p>info-actividad works!</p>
+<div class="mainContainer">
+    <div class="conte">
+        <strong>Nombre</strong>
+        {{data.nombre}}
+    </div>
+    <div class="conte">
+        <strong>Riesgo</strong>
+        {{data.riesgo}}
+    </div>
+    <div class="conte">
+        <div><strong>Precio</strong></div>
+        <div>{{data.precio}}</div>
+    </div>
+    <div class="conte">
+        <strong>Correo Electrónico</strong>
+        {{data.ley7600 == true? "Sí" : "No"}}
+    </div>
+    <div class="conte">
+        <div><strong>Edad max</strong></div>
+        <div>{{data.edadMax}}</div>
+    </div>
+    <div class="conte">
+        <strong>Edad min</strong>
+        {{data.edadMin}}
+    </div>
+    <div class="conte">
+        <strong>Edad min</strong>
+        {{data.descripcion}}
+    </div>
+    <button mat-flat-button color="primary" class="tablaBotones" (click)="cancelar()">Cerrar</button>
+</div>

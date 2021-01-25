@@ -47,7 +47,7 @@
         <form class="example-form">
           <mat-form-field class="example-full-width">
             <mat-label>Placa</mat-label>
-            <input type="number" matInput [formControl]="placa" placeholder="Ex. 999999" [errorStateMatcher]="matcher">
+            <input type="text" matInput [formControl]="placa" placeholder="Ex. 999999" [errorStateMatcher]="matcher">
             <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
             <mat-error *ngIf="placa.hasError('maxlength') || placa.hasError('minlength')">
                 Ingrese una placa <strong>Válida</strong>

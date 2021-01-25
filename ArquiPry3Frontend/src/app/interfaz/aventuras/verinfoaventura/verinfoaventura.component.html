@@ -1,19 +1,35 @@
 <div class="mainContainer">
     <div class="conte">
         <strong>Cédula Júridica</strong>
-        {{data}}
+        {{data.cedulaJuridica}}
     </div>
     <div class="conte">
         <strong>Nombre</strong>
-        {{data}}
+        {{data.nombre}}
     </div>
     <div class="conte">
         <div><strong>Teléfono</strong></div>
-        <div>{{data}}</div>
+        <div>{{data.contacto}}</div>
     </div>
     <div class="conte">
-        <strong>Correo Electrónico</strong>
-        {{data}}
+        <strong>GPS</strong>
+        {{data.gps}}
+    </div>
+    <div class="conte">
+        <strong>Provincia</strong>
+        {{data.provincia}}
+    </div>
+    <div class="conte">
+        <strong>Canton</strong>
+        {{data.canton}}
+    </div>
+    <div class="conte">
+        <strong>Distrito</strong>
+        {{data.distrito}}
+    </div>
+    <div class="conte">
+        <strong>Señas</strong>
+        {{data.senasExactas}}
     </div>
     <button mat-flat-button color="primary" class="tablaBotones" (click)="cancelar()">Cerrar</button>
 </div>

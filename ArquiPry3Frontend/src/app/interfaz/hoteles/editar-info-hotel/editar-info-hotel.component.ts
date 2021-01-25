@@ -306,16 +306,13 @@ export class EditarInfoHotelComponent implements OnInit {
 
   crearHOtel():void {
     if(this.validarHotel()) {
+      console.log('poero que mierda')
       this.servicio.editarHotel(this.maquetaHotel()).subscribe(res => {
       })
       this.dialogRef.close();
     } else {
       this.openSnackBar('Ingrese todos los datos correctamente')
     }
-
-    // this.servicio.crearHotel().subscribe(res => {
-
-    // });
   }
 
   maquetaHotel():Hoteles {

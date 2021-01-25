@@ -17,6 +17,7 @@ const httpOption = {
 
     private crear = 'actividades/crear';
     private ver = 'actividades/ver';
+    private acti = 'actividades/actualizar';
 
     constructor(
         private _http: HttpClient
@@ -32,5 +33,9 @@ const httpOption = {
             idEmpresaAventura: dato
         }
         return this._http.post(`${this.port}${this.ver}`, jo, httpOption);
+    }
+
+    posDeneuvo(dato: any):Observable<any> {
+      return this._http.put(`${this.port}${this.acti}`,dato, httpOption);
     }
   }
