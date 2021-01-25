@@ -101,7 +101,7 @@ export class CrearAventuraComponent implements OnInit {
           }
       }
       this.servicio.crearAventura(XD).subscribe(res => {
-        
+        this.dialogRef.close();
       });
     }
   }
