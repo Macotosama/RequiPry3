@@ -11,6 +11,7 @@ import { HotelesService } from '../../logicaDeNegocios/hoteles/servicios/hoteles
 import { MatTableDataSource } from '@angular/material/table';
 import { HabitacionService } from '../../logicaDeNegocios/habitaciones/servicios/habitacionService';
 import { AventurasService } from '../../logicaDeNegocios/aventuras/servicios/aventurasService';
+import { CrearActividadComponent } from './crear-actividad/crear-actividad.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -72,9 +73,9 @@ export class ActividadesComponent implements OnInit {
   }
 
   dialogAgregarHotel() {
-    // const dialogRef = this.dialog.open(CrearHabitacionComponent, {
-    //   width: '700px', height: '600px'
-    // })
+    const dialogRef = this.dialog.open(CrearActividadComponent, {
+      width: '700px', height: '600px'
+    })
   }
 
   verHoteles():void {
