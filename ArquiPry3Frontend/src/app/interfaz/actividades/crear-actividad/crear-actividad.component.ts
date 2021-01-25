@@ -9,7 +9,7 @@ import { HotelesService } from '../../../logicaDeNegocios/hoteles/servicios/hote
 import { MatTableDataSource } from '@angular/material/table';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { AventurasService } from '../../../logicaDeNegocios/aventuras/servicios/aventurasService';
-import { ActividadService}
+import { ActividadesService } from '../../../logicaDeNegocios/actividades/actividadesService'
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -84,7 +84,7 @@ export class CrearActividadComponent implements OnInit {
   dataSource = new MatTableDataSource<any>([]);
   displayedColumns = ['cedula' ,'nombre', 'telefono'];
 
-  constructor( public dialogRef: MatDialogRef<CrearActividadComponent>, private servicios: HabitacionService,
+  constructor( public dialogRef: MatDialogRef<CrearActividadComponent>, private servicios: ActividadesService,
   private servicios2: AventurasService, private _snackBar: MatSnackBar) {
    };
 
@@ -93,7 +93,7 @@ export class CrearActividadComponent implements OnInit {
 
   crearHabitacion():void {
     if (this.validDatos()) {
-      this.servicios.crearHabitacion(this.crearMaqueta()).subscribe(res => {
+      this.servicios.crearActividad(this.crearMaqueta()).subscribe(res => {
         this.openSnackBar('Se creo correctamente la habitación');
         this.dialogRef.close();
       })
@@ -105,7 +105,7 @@ export class CrearActividadComponent implements OnInit {
   crearMaqueta():any {
     return {
       nombre: this.nombre.value,
-      dsecripcion: this.descripcion.value,
+      descripcion: this.descripcion.value,
       precio: this.precio.value,
       idEmpresaAventura: this.idHotel,
       riesgo: this.riesgo.value,
@@ -130,7 +130,7 @@ export class CrearActividadComponent implements OnInit {
         pex = this.hotel2.value;
       }
       this.servicios2.aventurasFiltro(pex).subscribe(res => {
-        this,this.dataSource.data = res;
+        this.dataSource.data = res;
       })
     }
   }

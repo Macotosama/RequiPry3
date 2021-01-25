@@ -12,6 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { HabitacionService } from '../../logicaDeNegocios/habitaciones/servicios/habitacionService';
 import { AventurasService } from '../../logicaDeNegocios/aventuras/servicios/aventurasService';
 import { CrearActividadComponent } from './crear-actividad/crear-actividad.component';
+import { ActividadesService } from '../../logicaDeNegocios/actividades/actividadesService';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -55,7 +56,7 @@ export class ActividadesComponent implements OnInit {
 
   hoteles: string[];
   constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog, private _snackBar: MatSnackBar,
-    private servicio: HabitacionService, private servicios2: AventurasService) { }
+    private servicio: ActividadesService, private servicios2: AventurasService) { }
 
   ngOnInit(): void {
   }
@@ -93,7 +94,7 @@ export class ActividadesComponent implements OnInit {
   
   clickHotel(nombre: string, id: number):void {
     this.idHotel = id;
-    this.servicio.verHabitaciones(id).subscribe(res => {
+    this.servicio.verTele(id).subscribe(res => {
       this.dataSource.data = res
     })
   }

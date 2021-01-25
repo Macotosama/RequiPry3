@@ -23,19 +23,19 @@
         <!-- Position Column -->
         <ng-container matColumnDef="cedula">
           <th mat-header-cell *matHeaderCellDef> Cédula Jurídica </th>
-          <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idHotel)"> {{element.cedulaJuridica}} </td>
+          <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idEmpresaAventura)"> {{element.cedulaJuridica}} </td>
         </ng-container>
       
         <!-- Name Column -->
         <ng-container matColumnDef="nombre">
           <th mat-header-cell *matHeaderCellDef> Nombre </th>
-          <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idHotel)"> {{element.nombre}} </td>
+          <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idEmpresaAventura)"> {{element.nombre}} </td>
         </ng-container>
       
         <!-- Weight Column -->
         <ng-container matColumnDef="telefono">
           <th mat-header-cell *matHeaderCellDef> Contacto </th>
-          <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idHotel)"> {{element.contacto}} </td>
+          <td mat-cell *matCellDef="let element" (click)="clickHotel(element.nombre,element.idEmpresaAventura)"> {{element.contacto}} </td>
         </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -132,14 +132,14 @@
             <form class="example-form">
               <mat-form-field class="example-full-width">
                 <mat-label>Precio</mat-label>
-                <input type="text" matInput [formControl]="precio" placeholder="Ex. XDDDDD" [errorStateMatcher]="matcher">
+                <input type="number" matInput [formControl]="precio" placeholder="Ex. XDDDDD" [errorStateMatcher]="matcher">
                 <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
                 <span matPrefix>¢</span>
                 <mat-error *ngIf="precio.hasError('maxlength') || precio.hasError('minlength')">
-                  Ingrese una <strong>Descripción</strong> valida
+                  Ingrese el <strong>Precio</strong>
                 </mat-error>
                 <mat-error *ngIf="precio.hasError('required')">
-                  Ingrese a  <strong>Descripcion</strong> de la habitación
+                  Ingrese el <strong>Precio</strong> de la habitación
                 </mat-error>
               </mat-form-field>
             </form>

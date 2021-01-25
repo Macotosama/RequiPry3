@@ -15,11 +15,22 @@ const httpOption = {
   export class ActividadesService {
     private port = 'http://localhost:9000/';
 
+    private crear = 'actividades/crear';
+    private ver = 'actividades/ver';
+
     constructor(
         private _http: HttpClient
     ){}
 
     crearActividad(dato: any):Observable<any> {
-        return this._http.post(`${this.port}`)
+        console.log(dato)
+        return this._http.post(`${this.port}${this.crear}`, dato, httpOption);
+    }
+
+    verTele(dato: number):Observable<any> {
+        var jo = {
+            idEmpresaAventura: dato
+        }
+        return this._http.post(`${this.port}${this.ver}`, jo, httpOption);
     }
   }
