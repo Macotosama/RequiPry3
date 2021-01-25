@@ -94,7 +94,6 @@ export class HabitacionesComponent implements OnInit {
   clickHotel(nombre: string, id: number):void {
     this.idHotel = id;
     this.servicio.verHabitaciones(id).subscribe(res => {
-      console.log(res)
       this.dataSource.data = res
     })
   }

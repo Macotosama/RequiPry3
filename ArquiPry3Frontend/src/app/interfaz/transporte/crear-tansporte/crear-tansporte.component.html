@@ -1,1 +1,77 @@
-<p>crear-tansporte works!</p>
+<div class="titulo">
+    <span>Crear Transporte</span>
+  </div>
+  <div class="mainContainer">
+      <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput [formControl]="nombre" placeholder="Ex. XD" [errorStateMatcher]="matcher">
+            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+            <mat-error *ngIf="nombre.hasError('maxlength') || nombre.hasError('minlength')">
+              Ingrese un <strong>Nombre</strong> válido
+            </mat-error>
+            <mat-error *ngIf="nombre.hasError('required')">
+              Ingrese le <strong>Nombre</strong>
+            </mat-error>
+          </mat-form-field>
+        </form>
+  
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Apellido 1</mat-label>
+            <input type="text" matInput [formControl]="apellido1" placeholder="Ex. Name" [errorStateMatcher]="matcher">
+            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+            <mat-error *ngIf="apellido1.hasError('maxlength') || apellido1.hasError('minlength')">
+              Ingrese un apellido <strong>Válido</strong>
+            </mat-error>
+            <mat-error *ngIf="apellido1.hasError('required')">
+              Ingrese el <strong>Apellido</strong>
+            </mat-error>
+          </mat-form-field>
+        </form>
+  
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Apellido 2</mat-label>
+            <input type="text" matInput [formControl]="apellido2" placeholder="Ex. 88888888" [errorStateMatcher]="matcher">
+            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+            <mat-error *ngIf="apellido2.hasError('maxlength') || apellido2.hasError('minlength')">
+                Ingrese un apellido <strong>Válido</strong>
+              </mat-error>
+              <mat-error *ngIf="apellido2.hasError('required')">
+                Ingrese el <strong>Apellido</strong>
+              </mat-error>
+          </mat-form-field>
+        </form>
+  
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Placa</mat-label>
+            <input type="number" matInput [formControl]="placa" placeholder="Ex. 999999" [errorStateMatcher]="matcher">
+            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+            <mat-error *ngIf="placa.hasError('maxlength') || placa.hasError('minlength')">
+                Ingrese una placa <strong>Válida</strong>
+              </mat-error>
+              <mat-error *ngIf="placa.hasError('required')">
+                Ingrese la <strong>Placa</strong>
+              </mat-error>
+          </mat-form-field>
+        </form>
+  
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Teléfono</mat-label>
+            <input type="number" matInput [formControl]="telefono" placeholder="Ex. " [errorStateMatcher]="matcher" required>
+            <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+            <mat-error *ngIf="telefono.hasError('maxlength') || telefono.hasError('minlength')">
+                Ingrese el número de <strong>Teléfono</strong>
+              </mat-error>
+              <mat-error *ngIf="telefono.hasError('required')">
+                Ingrese el <strong>Teléfono</strong>
+              </mat-error>
+          </mat-form-field>
+        </form>
+      
+        <button mat-flat-button color="primary" (click)="crearTransporte()">Aceptar</button>
+  </div>
+  

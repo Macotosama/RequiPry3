@@ -78,7 +78,6 @@ export class EditarInfoHabitacionComponent implements OnInit {
     this.descripcion.setValue(data.descripcion);
     this.categoria.setValue('XD');
     this.imagen.setValue(data.multimedia);
-    console.log(data)
    };
 
   ngOnInit(): void {
@@ -86,8 +85,8 @@ export class EditarInfoHabitacionComponent implements OnInit {
 
   crearHabitacion():void {
     if (this.validDatos()) {
-      this.servicios.crearHabitacion(this.crearMaqueta()).subscribe(res => {
-        this.openSnackBar('Se creo correctamente la habitación');
+      this.servicios.actualizar(this.crearMaqueta()).subscribe(res => {
+        this.openSnackBar('Se actualizo correctamente la habitación');
         this.dialogRef.close();
       })
     } else {
@@ -100,13 +99,13 @@ export class EditarInfoHabitacionComponent implements OnInit {
       numeroHabitacion: this.numeroHabitacion.value,
       dsecripcion: this.descripcion.value,
       precio: this.precio.value,
-      idHabitacion: null,
+      idHabitacion: this.data.idHabitacion,
       multimedia: this.imagen.value
     }
   }
 
   validDatos():boolean {
-    if(this.numeroHabitacion.valid && this.categoria.valid && this.precio.valid && this.descripcion.valid && this.hotel.valid && this.imagen.valid) {
+    if(this.numeroHabitacion.valid && this.categoria.valid && this.precio.valid && this.descripcion.valid && this.imagen.valid) {
       return true;
     } else {
       return false;
