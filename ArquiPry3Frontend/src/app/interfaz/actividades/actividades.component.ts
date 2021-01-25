@@ -13,6 +13,7 @@ import { HabitacionService } from '../../logicaDeNegocios/habitaciones/servicios
 import { AventurasService } from '../../logicaDeNegocios/aventuras/servicios/aventurasService';
 import { CrearActividadComponent } from './crear-actividad/crear-actividad.component';
 import { ActividadesService } from '../../logicaDeNegocios/actividades/actividadesService';
+import { InfoActividadComponent } from './info-actividad/info-actividad.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -62,9 +63,9 @@ export class ActividadesComponent implements OnInit {
   }
 
   dialogVerInfo(item: number) {
-    // const dialogRef = this.dialog.open(VerinfohabitacionComponent , {
-    //   width: '400px', height: '250px', data: item
-    // })
+    const dialogRef = this.dialog.open(InfoActividadComponent , {
+      width: '400px', height: '250px', data: item
+    })
   }
 
   dialogEditarInfo(item: number) {
